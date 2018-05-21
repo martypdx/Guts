@@ -6,7 +6,7 @@ class Card {
     constructor(value, suit, frontImageSource, backImageSource) {
         this.value = value;
         this.suit = suit;
-        this.backImageSource = backImageSource;
+        this.frontImageSource = frontImageSource;
         this.backImageSource = backImageSource;
     }
 }
