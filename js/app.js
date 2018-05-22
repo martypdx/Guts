@@ -25,12 +25,12 @@ class App {
         const potDom = potViewerComponent.render();
         potViewerSection.appendChild(potDom);
 
-        const handChoiceSection = dom.getElementById('in-out');
-        const inComponent = new Controls();
-        const inDom = inComponent.handChoice();
-        handChoiceSection.appendChild(inDom);
-
-
+       
+        const controlsComponent = new Controls();
+        const inDom = controlsComponent.handIn();
+        const outDom = controlsComponent.handOut();
+        const exitDom = controlsComponent.exit();
+       
         return dom;
     }
 
