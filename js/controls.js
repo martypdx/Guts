@@ -1,25 +1,36 @@
-// get controls to notify app that the button's been clicked 
-// and have app store that value in its this.anteSelect variable
-// then send that down to renderPot in Center
-
 /* exported Controls */
 
+const anteTemplate = document.getElementById('ante-template');
+const inOutTemplate = document.getElementById('in-out-template');
+const navTemplate = document.getElementById('nav-template');
+
+
 class Controls {
-    constructor(anteSelect) {
-        this.anteSelect = anteSelect;
+    constructor() {
     }
 
-    render() {
-        const anteButtonDiv = document.getElementById('ante');
-        const anteButtons = anteButtonDiv.querySelectorAll('button');
+    renderAnte() {
+        const dom = anteTemplate.content.cloneNode(true);
+        const anteButtons = dom.querySelectorAll('button');
         for(let i = 0; i < anteButtons.length; i++) {
-            anteButtons[i].addEventListener('click', () => {
-                this.anteSelect = anteButtons[i].textContent;
-                console.log('is this on?', this.anteSelect);
-            });
+            anteButtons[i].textContent = (i * 5) + 5;
         }
-        return this.anteSelect;
-        // return this.anteSelect;
+        return dom;
+    }
 
+    renderInOut() {
+        const dom = inOutTemplate.content.cloneNode(true);
+        const inOutButtons = dom.querySelectorAll('button');
+        inOutButtons[0].textContent = 'IN';
+        inOutButtons[1].textContent = 'OUT';
+        return dom;
+    }
+
+    renderNav() {
+        const dom = navTemplate.content.cloneNode(true);
+        const navButtons = dom.querySelectorAll('button');
+        navButtons[0].textContent = 'BACK';
+        navButtons[1].textContent = 'NEXT';
+        return dom;
     }
 }

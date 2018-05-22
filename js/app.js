@@ -1,4 +1,4 @@
-/* globals Controls Players */
+/* globals Controls */
 /* exported App */
 'use strict';
 
@@ -6,27 +6,28 @@ const appTemplate = document.getElementById('app-template');
 
 class App {
     constructor() {
-        this.anteSelect = '';
     }
 
     render() {
         const dom = appTemplate.content;
-        const playersComponent = new Players('Here are the players');
-        const playersSection = dom.getElementById('players');
-        playersSection.appendChild(playersComponent.render());
+        const anteViewerSection = dom.getElementById('ante-viewer');
 
-        this.anteUp();
+        const controlsViewerComponent = new Controls();
+        const anteDom = controlsViewerComponent.renderAnte();
+        anteViewerSection.appendChild(anteDom);
+
+        const inOutViewerSection = dom.getElementById('in-out-viewer');
+        const inOutDom = controlsViewerComponent.renderInOut();
+        inOutViewerSection.appendChild(inOutDom);
+
+        const navViewerSection = dom.getElementById('nav-viewer');
+        const navDom = controlsViewerComponent.renderNav();
+        navViewerSection.appendChild(navDom);
+        // const playersComponent = new Players('Here are the players');
+        // const playersSection = dom.getElementById('players');
+        // playersSection.appendChild(playersComponent.render());
+
+        // this.anteUp();
         return dom;
-    }
-
-    anteUp() {
-        // const dom = appTemplate.content;
-        const anteComponent = new Controls(() => {
-            const anteVar = anteComponent.render();
-            console.log(anteVar);
-        });
-        // const anteSelectString = anteComponent.render();
-        // console.log(anteSelectString);
-        // return anteSelectString;
     }
 }

@@ -13,6 +13,9 @@
     <template id="app-template">
         <section id="players"></section>
         <section id="center-viewer"></section>
+        <section id="ante-viewer"></section>
+        <section id="in-out-viewer"></section>
+        <section id="nav-viewer"></section>
     </template>
 
     <template id="players-template">
@@ -26,33 +29,31 @@
      <p>Ante Up!</p>
     </template>
 
+    <template id="ante-template">
+        <h3>Ante:</h3>
+        <button></button>
+        <button></button>
+        <button></button>
+        <button></button>
+    </template>
+
+    <template id="in-out-template">
+        <h3>Hand Decision:</h3>
+        <button></button>
+        <button></button>
+    </template>
+
+    <template id="nav-template">
+        <h3>Nav:</h3>
+        <button></button>
+        <button></button>
+    </template>
     
-    <div id="controls">
-        <div id="ante">
-            <label>Ante:</label>
-            <button type="submit">5</button>
-            <button type="submit">10</button>
-            <button type="submit">15</button>
-            <button type="submit">20</button>
-        </div>
-    
-        <div id="in-out">
-            <label>Hand Decision:</label>
-            <button type="submit" disabled>IN</button>
-            <button type="submit" disabled>OUT</button>
-        </div>
-        
-        <div id="next-exit">
-            <label></label>
-            <button type="submit" disabled>NEXT</button>
-            <button type="submit">EXIT</button>
-        </div>
-    </div>
-    
+    <!-- <script src="js/Controls.js"></script> -->
     <script src="js/Controls.js"></script>
-    <script src="./js/players.js"></script>
-    <script src="./js/App.js"></script>
-    <script src="./js/main.js"></script>
+    <!-- <script src="./js/players.js"></script> -->
+    <script src="js/App.js"></script>
+    <script src="js/main.js"></script>
   
 </body>
 </html>
