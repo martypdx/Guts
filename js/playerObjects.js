@@ -1,16 +1,16 @@
 /* exported playersList */
 
 class PlayersObjects {
-    constructor(name, cards, bankroll) {
+    constructor(name, cards) {
         this.name = name;
         this.cards = cards;
-        this.bankroll = bankroll;
+        this.bankroll = 1000;
     }
 }
 
-const user = new PlayersObjects('', [], 1000);
-const npcOne = new PlayersObjects('Rocket', [], 1000);
-const npcTwo = new PlayersObjects('Drax', [], 1000);
+const user = new PlayersObjects('', []);
+const npcOne = new PlayersObjects('Rocket', []);
+const npcTwo = new PlayersObjects('Drax', []);
 const dealer = new PlayersObjects('Dealer', []);
 
 const playersList = [user, npcOne, npcTwo, dealer];
