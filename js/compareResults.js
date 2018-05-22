@@ -3,9 +3,9 @@ const userHand = [3, 7];
 const opponentHand = [9, 1];
 
 function getHighCard (hand) {
-
     let highCard;
     let kicker;
+
     if(hand[0] > hand[1]) {
         highCard = hand[0];
         kicker = hand[1];
@@ -18,6 +18,10 @@ function getHighCard (hand) {
     console.log(kicker);
 }
 
-//function getOpponentHighCard()
+function compareHands(userHand, opponenthand){
+    if(userHand > opponentHand) {
+        console.log('user wins ');
+    }
+}
 
 getHighCard(opponentHand);
