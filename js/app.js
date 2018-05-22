@@ -1,4 +1,5 @@
-/* globals Pot */
+
+/* globals Pot Players */
 /* exported App */
 'use strict';
 
@@ -10,7 +11,14 @@ class App {
     }
 
     render() {
+
+
         const dom = appTemplate.content;
+        const playersComponent = new Players('testing');
+        const playersSection = dom.getElementById('players');
+        playersSection.appendChild(playersComponent.render());
+
+       
         const potViewerSection = dom.getElementById('pot-viewer');
 
         const potViewerComponent = new Pot();

@@ -1,23 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Guts Game</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/gameroom.css">
+    <title>Guts</title>
 </head>
 <body>
+    <h1>GUTS</h1>
 
-    <div id="root"></div>
+    <div id="root">
+    
+    </div>
     
     <template id="app-template">
-        <h1>Guts</h1>
+        <section id="players"></section>
         <section id="pot-viewer"></section>
     </template>
 
-    <template id="pot-template">
-        <p></p>
+    <template id="players-template">
+        <p id="player-1">
+
+        <p>
+
+        <!-- <section id="player-2">
+
+        </section> -->
+    </template>
+  
+   <template id="pot-template">
+     <p> </p>
+ 
     </template>
 
+    
+    <form id="controls">
+        <div id="ante">
+            <label>Ante:</label>
+            <button type="submit">5</button>
+            <button type="submit">10</button>
+            <button type="submit">15</button>
+            <button type="submit">20</button>
+        </div>
+    
+        <div id="in-out">
+            <label>Hand Decision:</label>
+            <button type="submit" disabled>IN</button>
+            <button type="submit" disabled>OUT</button>
+        </div>
+        
+        <div id="next-exit">
+            <label></label>
+            <button type="submit" disabled>NEXT</button>
+            <button type="submit">EXIT</button>
+        </div>
+    </form>
+    
     <script src="js/Pot.js"></script>
-    <script src="js/App.js"></script>
-    <script src="js/main.js"></script>
+    <script src="./js/players.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/main.js"></script>
+  
 </body>
 </html>

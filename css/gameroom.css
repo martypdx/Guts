@@ -1,0 +1,11 @@
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+#controls {
+    margin-top: 40%;
+    display: flex;
+    align-self: end;
+    justify-content: space-around;
+}
