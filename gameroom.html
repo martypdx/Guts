@@ -17,16 +17,23 @@
     <template id="app-template">
         <section id="players"></section>
         <section id="pot-viewer"></section>
+        <button>Deal!</button>
+        <button class="button">Another Button!</button>
     </template>
 
     <template id="players-template">
-        <p id="player-1">
+        <ul>
 
-        <p>
+        </ul>
+    </template>
 
-        <!-- <section id="player-2">
-
-        </section> -->
+    <template id="player-template">
+        <div class="name"></div>
+        <div class="bankroll"></div>
+        <ul class="hand">
+            <li></li>
+            <li></li>
+        </ul>
     </template>
   
    <template id="pot-template">
@@ -57,10 +64,13 @@
         </div>
     </form>
     
+    <script src="js/player.js"></script>
+    <script src="js/cards.js"></script>
+    <script src="js/playerObjects.js"></script>
     <script src="js/Pot.js"></script>
-    <script src="./js/players.js"></script>
-    <script src="./js/app.js"></script>
-    <script src="./js/main.js"></script>
+    <script src="js/players.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/main.js"></script>
   
 </body>
 </html>
