@@ -1,0 +1,35 @@
+body {
+    padding: 50px;
+}
+
+.bio-body {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+}
+
+.bio-column {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;}
+
+img {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    height: 300px;
+}
+
+.inner {
+    flex-direction: column;
+}
+
+h2 {
+    padding-left: 50px;
+}
+
+p {
+    padding-left: 50px;
+    width: 500px;
+}
