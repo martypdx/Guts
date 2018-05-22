@@ -1,5 +1,5 @@
 
-/* globals Pot Players */
+/* globals Pot Players Controls */
 /* exported App */
 'use strict';
 
@@ -11,7 +11,6 @@ class App {
     }
 
     render() {
-
 
         const dom = appTemplate.content;
         const playersComponent = new Players('Here are the players');
@@ -25,6 +24,15 @@ class App {
 
         const potDom = potViewerComponent.render();
         potViewerSection.appendChild(potDom);
+
+        const handChoiceSection = dom.getElementById('in-out');
+        const inComponent = new Controls();
+        const inDom = inComponent.handChoice();
+        handChoiceSection.appendChild(inDom);
+
+
         return dom;
     }
+
+
 }

@@ -9,6 +9,7 @@
 </head>
 <body>
     <h1>GUTS</h1>
+    <span id="card"></span>
 
     <div id="root">
     
@@ -35,7 +36,7 @@
     </template>
 
     
-    <form id="controls">
+    <div id="controls">
         <div id="ante">
             <label>Ante:</label>
             <button type="submit">5</button>
@@ -46,8 +47,8 @@
     
         <div id="in-out">
             <label>Hand Decision:</label>
-            <button type="submit" disabled>IN</button>
-            <button type="submit" disabled>OUT</button>
+            <button type="submit">IN</button>
+            <button type="submit">OUT</button>
         </div>
         
         <div id="next-exit">
@@ -55,8 +56,9 @@
             <button type="submit" disabled>NEXT</button>
             <button type="submit">EXIT</button>
         </div>
-    </form>
-    
+    </div>
+    <script src="js/Controls.js"></script>
+    <script src="js/cards.js"></script>
     <script src="js/Pot.js"></script>
     <script src="./js/players.js"></script>
     <script src="./js/app.js"></script>
