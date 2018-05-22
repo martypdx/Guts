@@ -4,7 +4,6 @@ const anteTemplate = document.getElementById('ante-template');
 const inOutTemplate = document.getElementById('in-out-template');
 const navTemplate = document.getElementById('nav-template');
 
-
 class Controls {
     constructor() {
     }
@@ -14,6 +13,9 @@ class Controls {
         const anteButtons = dom.querySelectorAll('button');
         for(let i = 0; i < anteButtons.length; i++) {
             anteButtons[i].textContent = (i * 5) + 5;
+            anteButtons[i].addEventListener('click', () => {
+                console.log('is this on?', anteButtons[i].textContent);
+            });
         }
         return dom;
     }

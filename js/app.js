@@ -1,4 +1,4 @@
-/* globals Controls */
+/* globals Controls CenterSpace */
 /* exported App */
 'use strict';
 
@@ -10,10 +10,15 @@ class App {
 
     render() {
         const dom = appTemplate.content;
-        const anteViewerSection = dom.getElementById('ante-viewer');
+
+        const centerSpaceComponent = new CenterSpace();
+        const centerSpaceSection = dom.getElementById('center-space-viewer');
+        const centerSpaceDom = centerSpaceComponent.render();
+        centerSpaceSection.appendChild(centerSpaceDom);
 
         const controlsViewerComponent = new Controls();
-        const anteDom = controlsViewerComponent.renderAnte();
+        const anteViewerSection = dom.getElementById('ante-viewer');
+        const anteDom = controlsViewerComponent.renderAnte(ante);
         anteViewerSection.appendChild(anteDom);
 
         const inOutViewerSection = dom.getElementById('in-out-viewer');
