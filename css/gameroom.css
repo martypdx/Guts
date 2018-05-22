@@ -9,3 +9,9 @@ h1 {
     align-self: end;
     justify-content: space-around;
 }
+
+#center-viewer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
