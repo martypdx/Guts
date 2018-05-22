@@ -14,7 +14,7 @@ class App {
 
 
         const dom = appTemplate.content;
-        const playersComponent = new Players('testing');
+        const playersComponent = new Players('Here are the players');
         const playersSection = dom.getElementById('players');
         playersSection.appendChild(playersComponent.render());
 
