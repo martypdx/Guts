@@ -1,15 +1,15 @@
 'use strict';
+let pair;
 let highCard;
 let kicker;
-let pair;
-const userHand = [4, 10];
-const opponentHand = [5, 5];
+const userHand = [4, 4];
+const opponentHand = [5, 6];
+
 //Gets player pair of cards and checks is it's a pair. If not, assigns highest value to highCard, lowest value to kicker.
 function getPlayerHand(hand) {
     
     if(hand[0] === hand[1]) {
         pair = hand[0];
-        console.log('a pair of ', pair, '\'s');
         return pair;
     }
     
@@ -25,6 +25,7 @@ function getPlayerHand(hand) {
         return { highCard: hand[1], kicker: hand[0] };
     }
 }
+
 //Compares player's hands to determine winner following game rules
 function compareHands(userHand, opponentHand){
     if(userHand === pair && opponentHand === pair) {
@@ -64,8 +65,6 @@ function compareHands(userHand, opponentHand){
 
 const firstHandToCompare = getPlayerHand(userHand);
 const secondHandToCompare = getPlayerHand(opponentHand);
-console.log(firstHandToCompare);
-console.log(secondHandToCompare);
 compareHands(firstHandToCompare, secondHandToCompare);
 
 
