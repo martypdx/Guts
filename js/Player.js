@@ -29,8 +29,10 @@ class Player {
         else if(this.player.hand.length > 0 && this.player.name !== 'User') {
             const hand = dom.querySelector('.hand');
             const cards = hand.querySelectorAll('img');
-            cards[0].src = this.player.hand[0].backImage;
-            cards[1].src = this.player.hand[1].backImage;
+            // cards[0].src = this.player.hand[0].backImage;
+            // cards[1].src = this.player.hand[1].backImage;
+            cards[0].src = this.player.hand[0].frontImage;
+            cards[1].src = this.player.hand[1].frontImage;
 
         }
 
