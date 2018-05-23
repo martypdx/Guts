@@ -16,12 +16,22 @@ class Player {
         const bankroll = dom.querySelector('.bankroll');
         bankroll.textContent = this.player.bankroll;
         
-        if(this.player.hand.length > 0) {
+        // checks to make sure hand has been dealt & players name is User
+        if(this.player.hand.length > 0 && this.player.name === 'User') {
             const hand = dom.querySelector('.hand');
-            const cards = hand.querySelectorAll('li');
-            cards[0].textContent = this.player.hand[0].value + ' ' + this.player.hand[0].suit;
-            cards[1].textContent = this.player.hand[1].value + ' ' + this.player.hand[1].suit;
+            const cards = hand.querySelectorAll('img');
+            cards[0].src = this.player.hand[0].frontImage;
+            cards[1].src = this.player.hand[1].frontImage;
             
+        }
+
+        // checks to make sure hand has been dealt & players name is not User
+        else if(this.player.hand.length > 0 && this.player.name !== 'User') {
+            const hand = dom.querySelector('.hand');
+            const cards = hand.querySelectorAll('img');
+            cards[0].src = this.player.hand[0].backImage;
+            cards[1].src = this.player.hand[1].backImage;
+
         }
 
         return dom;

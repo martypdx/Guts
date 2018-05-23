@@ -25,7 +25,7 @@ class Players {
 
     render() {
         const dom = playersTemplate.content;
-        this.ul = dom.querySelector('ul');
+        this.ul = dom.querySelector('div');
         
         this.update(this.players);
 
