@@ -35,7 +35,7 @@ class App {
 
             if(this.players[i].hand[0].value === this.players[i].hand[1].value) {
                 const hand = this.players[i].hand[0].value;
-                console.log(hand);
+                this.handDealt.push(hand);                         
                 //return hand;
             }
             
@@ -43,7 +43,7 @@ class App {
                 const highCard = this.players[i].hand[0].value;
                 const kicker = this.players[i].hand[1].value;
                 const hand = [highCard, kicker];
-                console.log(hand);
+                this.handDealt.push(hand);
                 //return hand;
             }
             
@@ -51,9 +51,11 @@ class App {
                 const highCard = this.players[i].hand[1].value;
                 const kicker = this.players[i].hand[0].value;
                 const hand = [highCard, kicker];
-                console.log(hand);
+                this.handDealt.push(hand);
                 //return hand;
             }
+            
+            console.log(this.handDealt);
         
         }
     }
