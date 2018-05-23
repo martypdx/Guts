@@ -24,14 +24,13 @@ class App {
             const cardOne = this.deck.splice(this.randomize(this.deck), 1);
             const cardTwo = this.deck.splice(this.randomize(this.deck), 1);
             player.hand = [cardOne[0], cardTwo[0]];
-            console.log(player.hand);
+            //console.log(player.hand);
         }
 
     }
 
     getPlayersHand() {
         
-
         for(let i = 0; i < this.players.length; i++) {
 
             if(this.players[i].hand[0].value === this.players[i].hand[1].value) {
