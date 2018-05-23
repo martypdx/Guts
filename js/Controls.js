@@ -5,7 +5,8 @@ const inOutTemplate = document.getElementById('in-out-template');
 const navTemplate = document.getElementById('nav-template');
 
 class Controls {
-    constructor() {
+    constructor(outChoice) {
+        this.outChoice = outChoice;
     }
 
     renderAnte() {
@@ -28,6 +29,10 @@ class Controls {
         const inOutButtons = dom.querySelectorAll('button');
         inOutButtons[0].textContent = 'IN';
         inOutButtons[1].textContent = 'OUT';
+        inOutButtons[1].addEventListener('click', () => {
+            this.outChoice();
+        });
+        
         return dom;
     }
 

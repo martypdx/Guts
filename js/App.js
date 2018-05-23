@@ -126,7 +126,7 @@ class App {
             this.dealHand();
             playersComponent.update(this.players);
             this.getPlayersHand();
-            this.compareHands(this.userHand, this.opponentHand);
+            //this.compareHands(this.userHand, this.opponentHand);
         });
 
         // prototype in-out button for adjusting bankroll
@@ -147,7 +147,11 @@ class App {
         const centerDom = centerComponent.render();
         centerSection.appendChild(centerDom);
 
-        const controlsViewerComponent = new Controls();
+        const controlsViewerComponent = new Controls(() => {
+            this.dealHand();
+            playersComponent.update(this.players);
+            this.getPlayersHand();
+        });
 
         const anteViewerSection = dom.getElementById('ante-viewer');
         const anteDom = controlsViewerComponent.renderAnte();
