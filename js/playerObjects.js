@@ -6,6 +6,7 @@ class PlayersObjects {
         this.value = value;
         this.hand = [];
         this.bankroll = 1000;
+        this.cardBack = cardBack;
     }
 }
 
