@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/gameroom.css">
     <title>Guts</title>
 </head>
@@ -11,13 +8,15 @@
     <h1>GUTS</h1>
 
     <div id="root">
-    
     </div>
     
     <template id="app-template">
         <section id="players"></section>
-        <section id="pot-viewer"></section>
-        <button>Deal!</button>
+        <section id="center-viewer"></section>
+        <section id="ante-viewer"></section>
+        <section id="in-out-viewer"></section>
+        <section id="nav-viewer"></section>
+        <button id="deal">Deal!</button>
         <button class="button">Another Button!</button>
     </template>
 
@@ -35,41 +34,42 @@
             <li></li>
         </ul>
     </template>
+    
+    <template id="pot-template">
+        <p> </p>
+    </template>    
   
-   <template id="pot-template">
-     <p> </p>
- 
+   <template id="center-template">
+     <p id="ante-message">Ante Up!</p>
     </template>
 
+    <template id="ante-template">
+        <h3>Ante:</h3>
+        <button></button>
+        <button></button>
+        <button></button>
+        <button></button>
+    </template>
+
+    <template id="in-out-template">
+        <h3>Hand Decision:</h3>
+        <button></button>
+        <button></button>
+    </template>
+
+    <template id="nav-template">
+        <h3>Nav:</h3>
+        <button></button>
+        <button></button>
+    </template>
     
-    <form id="controls">
-        <div id="ante">
-            <label>Ante:</label>
-            <button type="submit">5</button>
-            <button type="submit">10</button>
-            <button type="submit">15</button>
-            <button type="submit">20</button>
-        </div>
-    
-        <div id="in-out">
-            <label>Hand Decision:</label>
-            <button type="submit" disabled>IN</button>
-            <button type="submit" disabled>OUT</button>
-        </div>
-        
-        <div id="next-exit">
-            <label></label>
-            <button type="submit" disabled>NEXT</button>
-            <button type="submit">EXIT</button>
-        </div>
-    </form>
-    
-    <script src="js/player.js"></script>
-    <script src="js/cards.js"></script>
+    <script src="js/Center.js"></script>
+    <script src="js/Controls.js"></script>
     <script src="js/playerObjects.js"></script>
-    <script src="js/Pot.js"></script>
-    <script src="js/players.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/cards.js"></script>
+    <script src="js/Players.js"></script>
+    <script src="js/Player.js"></script>
+    <script src="js/App.js"></script>
     <script src="js/main.js"></script>
   
 </body>
