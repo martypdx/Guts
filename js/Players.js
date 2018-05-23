@@ -23,6 +23,19 @@ class Players {
         }
     }
 
+    reveal(players) {
+        this.players = players;
+        while(this.ul.lastElementChild) {
+            this.ul.lastElementChild.remove();
+        }
+
+        for(let i = 0; i < this.players.length; i++) {
+            const playerComponent = new Player(this.players[i]);
+            const playerDom = playerComponent.reveal();
+            this.ul.appendChild(playerDom);
+        }
+    }
+
     render() {
         const dom = playersTemplate.content;
         this.ul = dom.querySelector('div');
