@@ -65,50 +65,40 @@ class App {
         // comparing if both players have pairs
         if(userHand[0].length === 1 && opponentHand[0].length === 1) {
             if(userHand === opponentHand) {
-                console.log('Draw, split the pot');
                 this.outcome = 'Draw';
             }
             else if(userHand[0][0] > opponentHand[0][0]) {
-                console.log('user wins');
                 this.outcome = 'Win';
             }
             else {
-                console.log('opponent wins');
                 this.outcome = 'Lose';
             }
         }
 
         // comparing if single player has pair
         else if(userHand[0].length === 1 && opponentHand[0].length !== 1) {
-            console.log('user wins');
             this.outcome = 'Win';
         }
         else if(userHand[0].length !== 1 && opponentHand[0].length === 1) {
-            console.log('opponent wins');
             this.outcome = 'Lose';
         }
 
         // comparing high cards
         else if(userHand[0][0] === opponentHand[0][0]) {
             if(userHand[0][0] === opponentHand[0][0] && userHand[0][1] === opponentHand[0][1]) {
-                console.log('Draw, split the pot');
                 this.outcome = 'Draw';
             }
             else if(userHand[0][1] > opponentHand[0][1]) {
-                console.log('user wins');
                 this.outcome = 'Win';
             }
             else {
-                console.log('opponent wins');
                 this.outcome = 'Lose';
             }
         }
         else if(userHand[0][0] > opponentHand[0][0]) {
-            console.log('user wins');
             this.outcome = 'Win';
         }
         else {
-            console.log('opponent wins');
             this.outcome = 'Lose';
         }
         return this.outcome;
@@ -116,7 +106,6 @@ class App {
 
     render() {
         const dom = appTemplate.content;
-        console.log('inside App.render', this.outcome);
 
         // prototype of ante button for dealing cards
         const button = dom.getElementById('deal');
@@ -140,7 +129,6 @@ class App {
             this.compareHands(this.userHand, this.opponentHand);
             playersComponent.reveal(this.players);
             const centerDom = controlsViewerComponent.centerView(this.outcome);
-            console.log('in app', this.outcome);
             centerSection.appendChild(centerDom);
         }, () => {
             this.dealHand();
@@ -155,8 +143,6 @@ class App {
         const navViewerSection = dom.getElementById('nav-viewer');
         const navDom = controlsViewerComponent.renderNav();
         navViewerSection.appendChild(navDom);
-
-
 
         return dom;
     }
