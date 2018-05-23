@@ -16,8 +16,8 @@ class App {
         // loop the player
         for(let i = 0; i < this.players.length; i++) {
             const player = this.players[i];
-            const cardOne = this.cards.pop();
-            const cardTwo = this.cards.pop();
+            const cardOne = this.cards[Math.floor(Math.random() * Math.floor(52))];
+            const cardTwo = this.cards[Math.floor(Math.random() * Math.floor(52))];
             player.hand = [cardOne, cardTwo];
         }
 
