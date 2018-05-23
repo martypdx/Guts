@@ -16,9 +16,12 @@ class App {
         // loop the player
         for(let i = 0; i < this.players.length; i++) {
             const player = this.players[i];
-            const cardOne = this.cards[Math.floor(Math.random() * Math.floor(52))];
-            const cardTwo = this.cards[Math.floor(Math.random() * Math.floor(52))];
+            const cardOne = this.cards[this.random()];
+            const cardTwo = this.cards[this.random()];
             player.hand = [cardOne, cardTwo];
+            // const cardOne = this.cards.splice(this.random(), 1);
+            // const cardTwo = this.cards.splice(this.random(), 1);
+            // player.hand = [cardOne[0], cardTwo[0]];
         }
 
         // randomly pick two cards from the deck and assign to each player
@@ -67,6 +70,11 @@ class App {
         navViewerSection.appendChild(navDom);
 
         return dom;
+    }
+
+    random() {
+        let randomNum = Math.floor(Math.random() * Math.floor(52));
+        return randomNum;
     }
 }
 
