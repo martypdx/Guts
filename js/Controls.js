@@ -30,7 +30,6 @@ class Controls {
         inOutButtons[0].textContent = 'IN';
         inOutButtons[0].addEventListener('click', () => {
             this.inChoice();
-            // this.centerView();
         });
         inOutButtons[1].textContent = 'OUT';
         inOutButtons[1].addEventListener('click', () => {
@@ -53,17 +52,13 @@ class Controls {
 
         if(outcome === 'Draw') {
             centerPara.textContent = 'Draw';
-            console.log(outcome);
         }
         else if(outcome === 'Win') {
             centerPara.textContent = 'Win';
-            console.log(outcome);
         }
         else if(outcome === 'Lose') {
             centerPara.textContent = 'Lose';
-            console.log(outcome);
         }
-        console.log(outcome);
         return dom;
     }
 }

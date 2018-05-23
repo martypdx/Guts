@@ -25,7 +25,6 @@ class App {
             const cardOne = this.deck.splice(this.randomize(this.deck), 1);
             const cardTwo = this.deck.splice(this.randomize(this.deck), 1);
             player.hand = [cardOne[0], cardTwo[0]];
-            //console.log(player.hand);
         }
     }
 
@@ -133,18 +132,6 @@ class App {
         const playersSection = dom.getElementById('players');
         playersSection.appendChild(playersComponent.render());
 
-        // const centerComponent = new Center();
-        // const centerSection = dom.getElementById('center-viewer');
-        // const centerDom = centerComponent.render();
-        // centerSection.appendChild(centerDom);
-
-        // const centerSection = dom.getElementById('center-viewer');
-
-        // const controlsComponentOut = new Controls(() => {
-        //     this.dealHand();
-        //     playersComponent.update(this.players);
-        //     this.getPlayersHand();
-        // });
         const centerSection = dom.getElementById('center-viewer');
         
         const controlsViewerComponent = new Controls(() => {
