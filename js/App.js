@@ -9,6 +9,8 @@ class App {
         this.players = playersList;
         this.deck = deckOfCardsArray;
         this.handDealt = [];
+        this.userHand = [];
+        this.opponentHand = [];
 
     }
 
@@ -30,12 +32,16 @@ class App {
     }
 
     getPlayersHand() {
-        
+        if(this.handDealt.length) {
+            this.handDealt = [];
+            this.userHand = [];
+            this.opponentHand = [];
+        }
         for(let i = 0; i < this.players.length; i++) {
-
             if(this.players[i].hand[0].value === this.players[i].hand[1].value) {
-                const hand = this.players[i].hand[0].value;
-                console.log(hand);
+                const pair = this.players[i].hand[0].value;
+                const hand = [pair];
+                this.handDealt.push(hand);
                 //return hand;
             }
             
@@ -43,7 +49,7 @@ class App {
                 const highCard = this.players[i].hand[0].value;
                 const kicker = this.players[i].hand[1].value;
                 const hand = [highCard, kicker];
-                console.log(hand);
+                this.handDealt.push(hand);
                 //return hand;
             }
             
@@ -51,10 +57,63 @@ class App {
                 const highCard = this.players[i].hand[1].value;
                 const kicker = this.players[i].hand[0].value;
                 const hand = [highCard, kicker];
-                console.log(hand);
+                this.handDealt.push(hand);
                 //return hand;
             }
-        
+        }
+        // for(let i = 0; i < this.handDealt.length; i++) {
+        //     for(let j = 0; j < this.handDealt[i].length; j++) {
+        //         this.userHand[j] = this.handDealt[0][j];
+        //         this.opponentHand[j] = this.handDealt[1][j];
+        //     }
+        // }
+        // this.userHand = this.handDealt[0];
+        this.userHand.push(this.handDealt[0]);
+        this.opponentHand.push(this.handDealt[1]);
+        // console.log(this.handDealt);
+        console.log(this.userHand);
+        console.log(this.opponentHand);
+    }
+
+    compareHands(userHand, opponentHand){
+        // comparing if both players have pairs
+        if(userHand[0].length === 1 && opponentHand[0].length === 1) {
+            if(userHand === opponentHand) {
+                return console.log('Draw, split the pot');
+            }
+            else if(userHand[0][0] > opponentHand[0][0]) {
+                return console.log('user wins');
+            }
+            else {
+                return console.log('opponent wins');
+            }
+        }
+
+        // comparing if single player has pair
+        else if(userHand[0].length === 1 && opponentHand[0].length !== 1) {
+            return console.log('user wins');
+        }
+        else if(userHand[0].length !== 1 && opponentHand[0].length === 1) {
+            return console.log('opponent wins');
+        }
+
+        // comparing high cards
+        else if(userHand[0][0] === opponentHand[0][0]) {
+            if(userHand[0][0] === opponentHand[0][0] && userHand[0][1] === opponentHand[0][1]) {
+                return console.log('Draw, split the pot');
+            }
+            else if(userHand[0][1] > opponentHand[0][1]) {
+                return console.log('user wins');
+            }
+            else {
+                return console.log('opponent wins');
+            }
+        }
+        else if(userHand[0][0] > opponentHand[0][0]) {
+            return console.log('user wins');
+        }
+        else {
+            return console.log('opponent wins');
         }
     }
 
@@ -67,6 +126,7 @@ class App {
             this.dealHand();
             playersComponent.update(this.players);
             this.getPlayersHand();
+            this.compareHands(this.userHand, this.opponentHand);
         });
 
         // prototype in-out button for adjusting bankroll
