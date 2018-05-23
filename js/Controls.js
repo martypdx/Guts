@@ -3,6 +3,7 @@
 const anteTemplate = document.getElementById('ante-template');
 const inOutTemplate = document.getElementById('in-out-template');
 const navTemplate = document.getElementById('nav-template');
+const centerTemplate = document.getElementById('center-template');
 
 class Controls {
     constructor(inChoice, outChoice) {
@@ -42,6 +43,22 @@ class Controls {
         const navButtons = dom.querySelectorAll('button');
         navButtons[0].textContent = 'BACK';
         navButtons[1].textContent = 'NEXT';
+        return dom;
+    }
+
+    centerView(outcome) {
+        const dom = centerTemplate.content.cloneNode(true);
+        const centerPara = dom.getElementById('message');
+
+        if(outcome === 'Draw') {
+            centerPara.textContent = 'Draw';
+        }
+        else if(outcome === 'Win') {
+            centerPara.textContent = 'Win';
+        }
+        else if(outcome === 'Lose') {
+            centerPara.textContent = 'Lose';
+        }
         return dom;
     }
 }
