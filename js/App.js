@@ -19,7 +19,6 @@ class App {
     }
 
     dealHand() {
-
         for(let i = 0; i < this.players.length; i++) {
             
             const player = this.players[i];
@@ -28,7 +27,6 @@ class App {
             player.hand = [cardOne[0], cardTwo[0]];
             //console.log(player.hand);
         }
-
     }
 
     getPlayersHand() {
@@ -61,18 +59,8 @@ class App {
                 //return hand;
             }
         }
-        // for(let i = 0; i < this.handDealt.length; i++) {
-        //     for(let j = 0; j < this.handDealt[i].length; j++) {
-        //         this.userHand[j] = this.handDealt[0][j];
-        //         this.opponentHand[j] = this.handDealt[1][j];
-        //     }
-        // }
-        // this.userHand = this.handDealt[0];
         this.userHand.push(this.handDealt[0]);
         this.opponentHand.push(this.handDealt[1]);
-        // console.log(this.handDealt);
-        console.log(this.userHand);
-        console.log(this.opponentHand);
     }
 
     compareHands(userHand, opponentHand){
@@ -126,15 +114,6 @@ class App {
             this.dealHand();
             playersComponent.update(this.players);
             this.getPlayersHand();
-            //this.compareHands(this.userHand, this.opponentHand);
-        });
-
-        // prototype in-out button for adjusting bankroll
-        const buttonTwo = dom.querySelector('.button');
-        buttonTwo.addEventListener('click', () => {
-            this.players[0].bankroll -= 500;
-            this.players[1].bankroll += 200;
-            playersComponent.update(this.players);
         });
 
         //renders players section
@@ -147,15 +126,16 @@ class App {
         const centerDom = centerComponent.render();
         centerSection.appendChild(centerDom);
 
-        const controlsViewerComponent = new Controls(() => {
+        const controlsComponentOut = new Controls(() => {
             this.dealHand();
             playersComponent.update(this.players);
             this.getPlayersHand();
         });
 
-        const anteViewerSection = dom.getElementById('ante-viewer');
-        const anteDom = controlsViewerComponent.renderAnte();
-        anteViewerSection.appendChild(anteDom);
+        const controlsComponentIn = new Controls(() => {
+            this.compareHands(this.userHand, this.opponentHand);
+            playersComponent.reveal(this.players);
+        });
 
         const inOutViewerSection = dom.getElementById('in-out-viewer');
         const inOutDom = controlsViewerComponent.renderInOut();
