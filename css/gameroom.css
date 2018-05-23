@@ -9,3 +9,12 @@ h1 {
     align-self: end;
     justify-content: space-around;
 }
+
+#players {
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    width: 100px;
+}

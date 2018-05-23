@@ -7,7 +7,7 @@ const appTemplate = document.getElementById('app-template');
 class App {
     constructor() {
         this.players = playersList;
-        this.cards = deckOfCardsArray;
+        this.deck = deckOfCardsArray;
         this.handDealt = [];
 
     }
@@ -58,12 +58,11 @@ class App {
         }
     }
 
-
     render() {
         const dom = appTemplate.content;
 
         // prototype of ante button for dealing cards
-        const button = dom.querySelector('button');
+        const button = dom.getElementById('deal');
         button.addEventListener('click', () => {
             this.dealHand();
             playersComponent.update(this.players);
