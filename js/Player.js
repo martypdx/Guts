@@ -7,6 +7,16 @@ class Player {
         this.player = player;
     }
 
+    reveal() {
+        const dom = playerTemplate.content.cloneNode(true);
+
+        const hand = dom.querySelector('.hand');
+        const cards = hand.querySelectorAll('img');
+        cards[0].src = this.player.hand[0].frontImage;
+        cards[1].src = this.player.hand[1].frontImage;
+        return dom;
+    }
+
     render() {
         const dom = playerTemplate.content.cloneNode(true);
         

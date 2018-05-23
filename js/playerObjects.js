@@ -13,9 +13,10 @@ class PlayersObjects {
 const user = new PlayersObjects('User', [], []);
 const npcOne = new PlayersObjects('Rocket', [], []);
 //const npcTwo = new PlayersObjects('Drax', []);
-const dealer = new PlayersObjects('Dealer', [], []);
+// const dealer = new PlayersObjects('Dealer', [], []);
 
-const playersList = [user, npcOne, dealer];
+// const playersList = [user, npcOne, dealer];
+const playersList = [user, npcOne];
 
 
 

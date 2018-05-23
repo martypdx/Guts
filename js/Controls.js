@@ -5,7 +5,9 @@ const inOutTemplate = document.getElementById('in-out-template');
 const navTemplate = document.getElementById('nav-template');
 
 class Controls {
-    constructor() {
+    constructor(inChoice, outChoice) {
+        this.inChoice = inChoice;
+        this.outChoice = outChoice;
     }
 
     renderAnte() {
@@ -16,8 +18,6 @@ class Controls {
             anteButtons[i].addEventListener('click', () => {
                 let anteText = document.getElementById('ante-message');
                 anteText.textContent = anteButtons[i].textContent;
-                // console.log('is this on?', anteButtons[i].textContent);
-                // return anteText;
             });
         }
         return dom;
@@ -27,7 +27,13 @@ class Controls {
         const dom = inOutTemplate.content.cloneNode(true);
         const inOutButtons = dom.querySelectorAll('button');
         inOutButtons[0].textContent = 'IN';
+        inOutButtons[0].addEventListener('click', () => {
+            this.inChoice();
+        });
         inOutButtons[1].textContent = 'OUT';
+        inOutButtons[1].addEventListener('click', () => {
+            this.outChoice();
+        });
         return dom;
     }
 

@@ -9,6 +9,8 @@ class App {
         this.players = playersList;
         this.deck = deckOfCardsArray;
         this.handDealt = [];
+        this.userHand = [];
+        this.opponentHand = [];
 
     }
 
@@ -17,7 +19,6 @@ class App {
     }
 
     dealHand() {
-
         for(let i = 0; i < this.players.length; i++) {
             
             const player = this.players[i];
@@ -26,16 +27,19 @@ class App {
             player.hand = [cardOne[0], cardTwo[0]];
             //console.log(player.hand);
         }
-
     }
 
     getPlayersHand() {
-        
+        if(this.handDealt.length) {
+            this.handDealt = [];
+            this.userHand = [];
+            this.opponentHand = [];
+        }
         for(let i = 0; i < this.players.length; i++) {
-
             if(this.players[i].hand[0].value === this.players[i].hand[1].value) {
-                const hand = this.players[i].hand[0].value;
-                this.handDealt.push(hand);                         
+                const pair = this.players[i].hand[0].value;
+                const hand = [pair];
+                this.handDealt.push(hand);
                 //return hand;
             }
             
@@ -54,9 +58,50 @@ class App {
                 this.handDealt.push(hand);
                 //return hand;
             }
-            
-            console.log(this.handDealt);
-        
+        }
+        this.userHand.push(this.handDealt[0]);
+        this.opponentHand.push(this.handDealt[1]);
+    }
+
+    compareHands(userHand, opponentHand){
+        // comparing if both players have pairs
+        if(userHand[0].length === 1 && opponentHand[0].length === 1) {
+            if(userHand === opponentHand) {
+                return console.log('Draw, split the pot');
+            }
+            else if(userHand[0][0] > opponentHand[0][0]) {
+                return console.log('user wins');
+            }
+            else {
+                return console.log('opponent wins');
+            }
+        }
+
+        // comparing if single player has pair
+        else if(userHand[0].length === 1 && opponentHand[0].length !== 1) {
+            return console.log('user wins');
+        }
+        else if(userHand[0].length !== 1 && opponentHand[0].length === 1) {
+            return console.log('opponent wins');
+        }
+
+        // comparing high cards
+        else if(userHand[0][0] === opponentHand[0][0]) {
+            if(userHand[0][0] === opponentHand[0][0] && userHand[0][1] === opponentHand[0][1]) {
+                return console.log('Draw, split the pot');
+            }
+            else if(userHand[0][1] > opponentHand[0][1]) {
+                return console.log('user wins');
+            }
+            else {
+                return console.log('opponent wins');
+            }
+        }
+        else if(userHand[0][0] > opponentHand[0][0]) {
+            return console.log('user wins');
+        }
+        else {
+            return console.log('opponent wins');
         }
     }
 
@@ -71,14 +116,6 @@ class App {
             this.getPlayersHand();
         });
 
-        // prototype in-out button for adjusting bankroll
-        const buttonTwo = dom.querySelector('.button');
-        buttonTwo.addEventListener('click', () => {
-            this.players[0].bankroll -= 500;
-            this.players[1].bankroll += 200;
-            playersComponent.update(this.players);
-        });
-
         //renders players section
         const playersComponent = new Players(this.players);
         const playersSection = dom.getElementById('players');
@@ -89,11 +126,20 @@ class App {
         const centerDom = centerComponent.render();
         centerSection.appendChild(centerDom);
 
-        const controlsViewerComponent = new Controls();
+        // const controlsComponentOut = new Controls(() => {
+        //     this.dealHand();
+        //     playersComponent.update(this.players);
+        //     this.getPlayersHand();
+        // });
 
-        const anteViewerSection = dom.getElementById('ante-viewer');
-        const anteDom = controlsViewerComponent.renderAnte();
-        anteViewerSection.appendChild(anteDom);
+        const controlsViewerComponent = new Controls(() => {
+            this.compareHands(this.userHand, this.opponentHand);
+            playersComponent.reveal(this.players);
+        }, () => {
+            this.dealHand();
+            playersComponent.update(this.players);
+            // this.getPlayersHand();
+        });
 
         const inOutViewerSection = dom.getElementById('in-out-viewer');
         const inOutDom = controlsViewerComponent.renderInOut();
