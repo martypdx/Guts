@@ -32,7 +32,7 @@ class Controls {
         });
         inOutButtons[1].textContent = 'OUT';
         inOutButtons[1].addEventListener('click', () => {
-            console.log('out button!');
+            this.outChoice();
         });
         return dom;
     }

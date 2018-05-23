@@ -126,7 +126,13 @@ class App {
         const centerDom = centerComponent.render();
         centerSection.appendChild(centerDom);
 
-        const controlsViewerComponent = new Controls(() => {
+        const controlsComponentOut = new Controls(() => {
+            this.dealHand();
+            playersComponent.update(this.players);
+            this.getPlayersHand();
+        });
+
+        const controlsComponentIn = new Controls(() => {
             this.compareHands(this.userHand, this.opponentHand);
             playersComponent.reveal(this.players);
         });
