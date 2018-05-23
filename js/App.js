@@ -11,7 +11,6 @@ class App {
         this.handDealt = [];
         this.userHand = [];
         this.opponentHand = [];
-        this.outcome = '_';
     }
 
     randomize(deck) {
