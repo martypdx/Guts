@@ -3,11 +3,11 @@
 'use strict';
 
 class Card {
-    constructor(value, suit, frontImageSource, backImageSource) {
+    constructor(value, suit, frontImage, backImage) {
         this.value = value;
         this.suit = suit;
-        this.frontImageSource = frontImageSource;
-        this.backImageSource = backImageSource;
+        this.frontImage = frontImage;
+        this.backImage = backImage;
     }
 }
     
