@@ -1,5 +1,4 @@
-/* globals Pot Players deckOfCardsArray playersList*/
-
+/* globals Players deckOfCardsArray playersList Center Controls  */
 /* exported App */
 'use strict';
 
@@ -29,7 +28,7 @@ class App {
     render() {
         // testing button function for dealing cards
         const dom = appTemplate.content;
-        const button = dom.querySelector('button');
+        const button = dom.getElementById('deal');
         button.addEventListener('click', () => {
             this.dealHand();
             playersComponent.update(this.players);
@@ -48,13 +47,25 @@ class App {
         const playersSection = dom.getElementById('players');
         playersSection.appendChild(playersComponent.render());
 
-       
-        const potViewerSection = dom.getElementById('pot-viewer');
+        const centerComponent = new Center();
+        const centerSection = dom.getElementById('center-viewer');
+        const centerDom = centerComponent.render();
+        centerSection.appendChild(centerDom);
 
-        const potViewerComponent = new Pot();
+        const controlsViewerComponent = new Controls();
 
-        const potDom = potViewerComponent.render();
-        potViewerSection.appendChild(potDom);
+        const anteViewerSection = dom.getElementById('ante-viewer');
+        const anteDom = controlsViewerComponent.renderAnte();
+        anteViewerSection.appendChild(anteDom);
+
+        const inOutViewerSection = dom.getElementById('in-out-viewer');
+        const inOutDom = controlsViewerComponent.renderInOut();
+        inOutViewerSection.appendChild(inOutDom);
+
+        const navViewerSection = dom.getElementById('nav-viewer');
+        const navDom = controlsViewerComponent.renderNav();
+        navViewerSection.appendChild(navDom);
+
         return dom;
     }
 }

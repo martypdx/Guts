@@ -1,33 +1,41 @@
-'use strict';
 /* exported Controls */
 
-//function that responds to user selection of ante
+const anteTemplate = document.getElementById('ante-template');
+const inOutTemplate = document.getElementById('in-out-template');
+const navTemplate = document.getElementById('nav-template');
+
 class Controls {
     constructor() {
-
     }
 
-    handIn() {
-        const choice = document.getElementById('in-out');
-        const choiceButtons = choice.querySelectorAll('button');
-        choiceButtons[0].addEventListener('click', () => {
-            console.log('player in');
-        });
+    renderAnte() {
+        const dom = anteTemplate.content.cloneNode(true);
+        const anteButtons = dom.querySelectorAll('button');
+        for(let i = 0; i < anteButtons.length; i++) {
+            anteButtons[i].textContent = (i * 5) + 5;
+            anteButtons[i].addEventListener('click', () => {
+                let anteText = document.getElementById('ante-message');
+                anteText.textContent = anteButtons[i].textContent;
+                // console.log('is this on?', anteButtons[i].textContent);
+                // return anteText;
+            });
+        }
+        return dom;
     }
 
-    handOut() {
-        const choice = document.getElementById('in-out');
-        const choiceButtons = choice.querySelectorAll('button');
-        choiceButtons[1].addEventListener('click', () => {
-            console.log('player out');
-        });
+    renderInOut() {
+        const dom = inOutTemplate.content.cloneNode(true);
+        const inOutButtons = dom.querySelectorAll('button');
+        inOutButtons[0].textContent = 'IN';
+        inOutButtons[1].textContent = 'OUT';
+        return dom;
     }
 
-    exit() {
-        const exitGame = document.getElementById('exit');
-        const exitButton = exitGame.querySelector('button');
-        exitButton.addEventListener('click', () => {
-            console.log('player exited game');
-        });
+    renderNav() {
+        const dom = navTemplate.content.cloneNode(true);
+        const navButtons = dom.querySelectorAll('button');
+        navButtons[0].textContent = 'BACK';
+        navButtons[1].textContent = 'NEXT';
+        return dom;
     }
 }
