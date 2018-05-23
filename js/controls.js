@@ -14,7 +14,10 @@ class Controls {
         for(let i = 0; i < anteButtons.length; i++) {
             anteButtons[i].textContent = (i * 5) + 5;
             anteButtons[i].addEventListener('click', () => {
-                console.log('is this on?', anteButtons[i].textContent);
+                let anteText = document.getElementById('ante-message');
+                anteText.textContent = anteButtons[i].textContent;
+                // console.log('is this on?', anteButtons[i].textContent);
+                // return anteText;
             });
         }
         return dom;
