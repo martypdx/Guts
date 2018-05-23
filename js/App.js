@@ -115,6 +115,14 @@ class App {
             playersComponent.update(this.players);
             this.getPlayersHand();
         });
+        
+        const out = dom.getElementById('out');
+        out.addEventListener('click', () => {
+            playersComponent.removeCards(this.players);
+            this.getPlayersHand();
+        });
+
+
 
         //renders players section
         const playersComponent = new Players(this.players);
