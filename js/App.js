@@ -27,6 +27,24 @@ class App {
         }
     }
 
+    tallyResults(outcome) {
+        if(outcome === 'Win') {
+            this.players[0].wins++;
+            this.players[1].loses++;
+        }
+
+        else if(outcome === 'Draw') {
+            this.players[0].draws++;
+            this.players[1].draws++;
+        }
+
+        else {
+            this.players[0].loses++;
+            this.players[1].wins++;
+        }
+
+    }
+
     getPlayersHand() {
         if(this.handDealt.length) {
             this.handDealt = [];
@@ -38,7 +56,6 @@ class App {
                 const pair = this.players[i].hand[0].value;
                 const hand = [pair];
                 this.handDealt.push(hand);
-                //return hand;
             }
             
             else if(this.players[i].hand[0].value > this.players[i].hand[1].value) {
@@ -46,7 +63,6 @@ class App {
                 const kicker = this.players[i].hand[1].value;
                 const hand = [highCard, kicker];
                 this.handDealt.push(hand);
-                //return hand;
             }
             
             else {
@@ -54,7 +70,6 @@ class App {
                 const kicker = this.players[i].hand[0].value;
                 const hand = [highCard, kicker];
                 this.handDealt.push(hand);
-                //return hand;
             }
         }
         this.userHand.push(this.handDealt[0]);
@@ -101,7 +116,8 @@ class App {
         else {
             this.outcome = 'Lose';
         }
-        return this.outcome;
+        
+        this.tallyResults(this.outcome);
     }
 
     render() {
@@ -114,7 +130,7 @@ class App {
             playersComponent.update(this.players);
             this.getPlayersHand();
         });
-
+        
         //renders players section
         const playersComponent = new Players(this.players);
         const playersSection = dom.getElementById('players');
