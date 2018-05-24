@@ -31,19 +31,6 @@ class Player {
         return dom;
     }
 
-    /*
-    removeCards() {
-        const dom = playerTemplate.content.cloneNode(true);
-        
-        const name = dom.querySelector('.name');
-        name.textContent = this.player.name;
-        
-        const bankroll = dom.querySelector('.bankroll');
-        bankroll.textContent = this.player.bankroll;
-
-        return dom;
-    } */
-
     render() {
         const dom = playerTemplate.content.cloneNode(true);
         

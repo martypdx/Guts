@@ -5,7 +5,6 @@ class PlayersObjects {
         this.name = name;
         this.value = value;
         this.hand = [];
-        //this.bankroll = 1000;
         this.wins = 0;
         this.loses = 0;
         this.draws = 0;
