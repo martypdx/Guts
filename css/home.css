@@ -1,0 +1,78 @@
+@font-face {
+    font-family: Guardians;
+    src: url(/Guardians.ttf);
+    }
+
+body {
+    background-image: url('galaxy_background.jpg');
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.title {
+    width: 100%;
+    text-align: center;
+    font-size: 3em;
+    font-family: Guardians, Arial, Helvetica, sans-serif;
+    color: gold;
+}
+
+h1 {
+    margin: 50px auto 10px;
+    text-shadow: 2px 6px 5px rgb(62, 0, 62);
+}
+
+.tag-line {
+    font-family: Guardians, Arial, Helvetica, sans-serif;
+    color: gold;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgb(62, 0, 62);
+}
+
+.menu {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;  
+    text-align: center;
+}
+
+.link-1 {
+    font-family: Guardians, Arial, Helvetica, sans-serif;
+    color: rgb(101, 20, 222);
+    display: inline-block;
+    text-shadow: 0px 0px 8px rgb(225, 207, 0);
+    text-decoration: none;
+    font-size: 1em;
+}   
+
+.link-2 {
+    font-family: Guardians, Arial, Helvetica, sans-serif;
+    color: aqua;
+    display: inline-block;
+    text-shadow: 0px 0px 15px gold;
+    text-decoration: none;
+    font-size: 2.5em;
+}
+
+.link-3 {
+    font-family: Guardians, Arial, Helvetica, sans-serif;
+    color: rgb(4, 247, 101);
+    display: inline-block;
+    text-shadow: 0px 0px 10px rgb(62, 53, 1);
+    text-decoration: none;
+    font-size: 0.75em;
+}
+
+.link-1:hover {
+    color: rgb(242, 44, 206);
+} 
+
+.link-2:hover {
+    color: rgb(242, 44, 206);
+} 
+
+.link-3:hover {
+    color: rgb(242, 44, 206);
+} 
