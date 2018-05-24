@@ -156,10 +156,6 @@ class App {
         const inOutDom = controlsViewerComponent.renderInOut();
         inOutViewerSection.appendChild(inOutDom);
 
-        const navViewerSection = dom.getElementById('nav-viewer');
-        const navDom = controlsViewerComponent.renderNav();
-        navViewerSection.appendChild(navDom);
-
         return dom;
     }
 }
