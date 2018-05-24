@@ -15,7 +15,9 @@
         <section id="players"></section>
         <section id="center-viewer"></section>
         <section id="in-out-viewer"></section>
+        <section id="end-message-viewer"></section>
         <button id="deal">DEAL</button>
+
     </template>
 
     <template id="players-template">
@@ -47,13 +49,25 @@
         <button></button>
     </template>
 
+    <template id="end-message-template">
+        <ul>
+
+        </ul>
+    </template>
+
+    <template id="user-report-template">
+        <li></li>
+        <li></li>
+    </template>
+
     <div>
         <form>
             <input type="button" value="Exit Game" onclick="window.location.href='home.html'"/>
         </form> 
     </div>
-
-        
+    
+    <script src="js/EndGame.js"></script>
+    <script src="js/UserReport.js"></script>    
     <script src="js/Controls.js"></script>
     <script src="js/playerObjects.js"></script>
     <script src="js/cards.js"></script>
