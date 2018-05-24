@@ -10,13 +10,28 @@ class Player {
     reveal() {
         const dom = playerTemplate.content.cloneNode(true);
 
+        const name = dom.querySelector('.name');
+        name.textContent = this.player.name;
+
+        const wins = dom.querySelector('.wins');
+        wins.textContent = this.player.wins;
+        
+        const loses = dom.querySelector('.loses');
+        loses.textContent = this.player.loses;
+
+        const draws = dom.querySelector('.draws');
+        draws.textContent = this.player.draws;
+
+
         const hand = dom.querySelector('.hand');
         const cards = hand.querySelectorAll('img');
         cards[0].src = this.player.hand[0].frontImage;
         cards[1].src = this.player.hand[1].frontImage;
+
         return dom;
     }
 
+    /*
     removeCards() {
         const dom = playerTemplate.content.cloneNode(true);
         
@@ -27,7 +42,7 @@ class Player {
         bankroll.textContent = this.player.bankroll;
 
         return dom;
-    }
+    } */
 
     render() {
         const dom = playerTemplate.content.cloneNode(true);
@@ -35,8 +50,14 @@ class Player {
         const name = dom.querySelector('.name');
         name.textContent = this.player.name;
         
-        const bankroll = dom.querySelector('.bankroll');
-        bankroll.textContent = this.player.bankroll;
+        const wins = dom.querySelector('.wins');
+        wins.textContent = this.player.wins;
+        
+        const loses = dom.querySelector('.loses');
+        loses.textContent = this.player.loses;
+
+        const draws = dom.querySelector('.draws');
+        draws.textContent = this.player.draws;
         
         // checks to make sure hand has been dealt & players name is User
         if(this.player.hand.length > 0 && this.player.name === 'User') {
