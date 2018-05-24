@@ -30,16 +30,11 @@ class App {
 
     tallyResults(outcome) {
         if(outcome === 'Win') {
-            this.players[0].wins = this.players[0].wins + 2;
-            this.players[1].loses++;
+            this.players[0].points += 2;
         }
-        else if(outcome === 'Draw') {
-            this.players[0].draws++;
-            this.players[1].draws++;
-        }
+
         else {
-            this.players[0].loses++;
-            this.players[1].wins = this.players[1].wins + 2;
+            this.players[1].points += 2;
         }
     }
 
@@ -172,7 +167,6 @@ class App {
                 inOutViewerSection.classList.toggle('hidden');
             }
             else {
-                this.players[1].wins++;
                 this.dealHand();
                 playersComponent.update(this.players);
                 this.getPlayersHand();
@@ -186,6 +180,8 @@ class App {
 
         // play-again button
         this.playAgainButton.addEventListener('click', () => {
+            this.players[0].points = 0;
+            this.players[1].points = 0;
             this.dealHand();
             inOutViewerSection.classList.remove('hidden');
             this.dealButton.classList.add('hidden');

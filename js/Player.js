@@ -14,7 +14,7 @@ class Player {
         name.textContent = this.player.name;
 
         const wins = dom.querySelector('.wins');
-        wins.textContent = this.player.wins;
+        wins.textContent = this.player.points;
         
         // const loses = dom.querySelector('.loses');
         // loses.textContent = this.player.loses;
@@ -38,7 +38,7 @@ class Player {
         name.textContent = this.player.name;
         
         const wins = dom.querySelector('.wins');
-        wins.textContent = this.player.wins;
+        wins.textContent = this.player.points;
         
         // const loses = dom.querySelector('.loses');
         // loses.textContent = this.player.loses;

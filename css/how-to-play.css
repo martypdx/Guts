@@ -1,8 +1,3 @@
-@font-face {
-    font-family: Guardians;
-    src: url(/Guardians.ttf);
-}
-
 body {
     background-image: url('galaxy_background.jpg');
     background-color: black;

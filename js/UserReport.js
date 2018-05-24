@@ -13,7 +13,7 @@ class UserReport {
 
         const li = dom.querySelectorAll('li');
         li[0].textContent = this.player.name;
-        li[1].textContent = this.player.wins;
+        li[1].textContent = this.player.points;
 
         return dom;
     }

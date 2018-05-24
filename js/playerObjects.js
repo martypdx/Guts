@@ -18,19 +18,15 @@ else {
 function initProducts() {
 
     class PlayersObjects {
-        constructor(name, value, cardFront, cardBack) {
+        constructor(name) {
             this.name = name;
-            this.value = value;
             this.hand = [];
-            this.wins = 0;
-            this.loses = 0;
-            this.draws = 0;
-            this.cardBack = cardBack;
+            this.points = 0;
         }
     }
 
-    const user = new PlayersObjects('User', [], []);
-    const npcOne = new PlayersObjects('Rocket', [], []);
+    const user = new PlayersObjects('User');
+    const npcOne = new PlayersObjects('Opponent');
     playersList = [user, npcOne];
 
 }
