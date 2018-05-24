@@ -30,7 +30,7 @@ class App {
 
     tallyResults(outcome) {
         if(outcome === 'Win') {
-            this.players[0].wins++;
+            this.players[0].wins = this.players[0].wins + 2;
             this.players[1].loses++;
         }
         else if(outcome === 'Draw') {
@@ -39,7 +39,7 @@ class App {
         }
         else {
             this.players[0].loses++;
-            this.players[1].wins++;
+            this.players[1].wins = this.players[1].wins + 2;
         }
     }
 
@@ -172,6 +172,7 @@ class App {
                 inOutViewerSection.classList.toggle('hidden');
             }
             else {
+                this.players[1].wins++;
                 this.dealHand();
                 playersComponent.update(this.players);
                 this.getPlayersHand();

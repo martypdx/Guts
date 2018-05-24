@@ -22,7 +22,14 @@ body {
     border-radius: 15px;
 }
 
-h1, h2, h3 {
+h1 {
+    font-size: 2.5em;
+    font-family: Guardians, Arial, Helvetica, sans-serif;
+    color: gold;
+    text-shadow: 2px 2px 8px rgb(255, 112, 255);
+}
+
+h2, h3 {
     font-family: Guardians, Arial, Helvetica, sans-serif;
     color: gold;
     text-shadow: 2px 2px 8px rgb(255, 112, 255);
@@ -38,6 +45,9 @@ ul, ol {
     text-decoration: none;
     background-color: #EEEEEE;
     color: #333333;
+    background-color: gold;
+    color: rgb(242, 44, 206);
+    border: 3px solid rgb(242, 44, 206);
     border-radius: 5px;
     padding: 7px;
   }
@@ -46,9 +56,26 @@ ul, ol {
     font-family: Guardians, Arial, Helvetica, sans-serif;
     font-size: 2.em;
     text-decoration: none;
-    background-color: #EEEEEE;
-    color: #333333;
+    background-color: gold;
+    color: rgb(242, 44, 206);
+    border: 3px solid rgb(242, 44, 206);
     border-radius: 5px;
     padding: 7px;
   }
 
+  .links {
+      display: flex;
+      justify-content: space-evenly
+  }
+
+  .play:hover, .back:hover {
+    font-family: Guardians, Arial, Helvetica, sans-serif;
+    font-size: 2.em;
+    text-decoration: none;
+    background-color: rgb(242, 44, 206);
+    color: gold;
+    border: 3px solid gold;
+    border-radius: 5px;
+    padding: 7px;
+    box-shadow: 0 0px 10px white;
+} 

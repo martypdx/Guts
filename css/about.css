@@ -1,24 +1,57 @@
+@font-face {
+    font-family: Guardians;
+    src: url(/Guardians.ttf);
+}
+
 body {
+    background-image: url('galaxy_background.jpg');
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
     padding: 50px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5em;
+    font-family: Guardians, Arial, Helvetica, sans-serif;
+    color: gold;
+    text-shadow: 2px 2px 8px rgb(255, 112, 255);
+    
+} 
+
+h2 {
+    font-family: Guardians, Arial, Helvetica, sans-serif;
+    color: gold;
+    text-shadow: 2px 2px 8px rgb(255, 112, 255);
 }
 
 .bio-body {
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.671);
+    width: 800px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-direction: row;
+    border-radius: 5px;
+    padding-left: 25px;
 }
 
 .bio-column {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    flex-direction: column;}
+    flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
 img {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    margin-top: 10px;
     height: 300px;
+    border: 3px solid gold;
+    border-radius: 5px;
 }
 
 .inner {
@@ -32,4 +65,19 @@ h2 {
 p {
     padding-left: 50px;
     width: 500px;
+}
+
+.link {
+    margin-top: 20px;
+}
+
+a {
+    font-family: Guardians, Arial, Helvetica, sans-serif;
+    font-size: 2.em;
+    text-decoration: none;
+    background-color: gold;
+    color: rgb(242, 44, 206);
+    border: 3px solid rgb(242, 44, 206);
+    border-radius: 5px;
+    padding: 7px;
 }
