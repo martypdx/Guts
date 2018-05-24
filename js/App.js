@@ -19,7 +19,6 @@ class App {
 
     dealHand() {
         for(let i = 0; i < this.players.length; i++) {
-            
             const player = this.players[i];
             const cardOne = this.deck.splice(this.randomize(this.deck), 1);
             const cardTwo = this.deck.splice(this.randomize(this.deck), 1);
@@ -32,17 +31,14 @@ class App {
             this.players[0].wins++;
             this.players[1].loses++;
         }
-
         else if(outcome === 'Draw') {
             this.players[0].draws++;
             this.players[1].draws++;
         }
-
         else {
             this.players[0].loses++;
             this.players[1].wins++;
         }
-
     }
 
     getPlayersHand() {
@@ -127,8 +123,11 @@ class App {
         const button = dom.getElementById('deal');
         button.addEventListener('click', () => {
             this.dealHand();
+            inOutViewerSection.classList.toggle('hidden');
+            button.classList.toggle('hidden');
             playersComponent.update(this.players);
             this.getPlayersHand();
+            centerSection.classList.toggle('hidden');
         });
         
         //renders players section
@@ -146,6 +145,9 @@ class App {
             playersComponent.reveal(this.players);
             const centerDom = controlsViewerComponent.centerView(this.outcome);
             centerSection.appendChild(centerDom);
+            centerSection.classList.toggle('hidden');
+            button.classList.toggle('hidden');
+            inOutViewerSection.classList.toggle('hidden');
         }, () => {
             this.dealHand();
             playersComponent.update(this.players);
@@ -155,6 +157,7 @@ class App {
         const inOutViewerSection = dom.getElementById('in-out-viewer');
         const inOutDom = controlsViewerComponent.renderInOut();
         inOutViewerSection.appendChild(inOutDom);
+        inOutViewerSection.classList.toggle('hidden');
 
         return dom;
     }
