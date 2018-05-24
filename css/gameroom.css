@@ -1,6 +1,15 @@
+body {
+    background-color: #096c47;
+    border: solid 5px #c8a500;
+    border-radius: 10px;
+    color: #eac100;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 h1 {
     display: flex;
     justify-content: center;
+    font-family: 'Cinzel', serif;
 }
 
 #controls {
