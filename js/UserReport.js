@@ -1,3 +1,4 @@
+/* exported UserReport */
 'use strict';
 
 const userReportTemplate = document.getElementById('user-report-template');

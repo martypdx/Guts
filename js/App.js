@@ -1,4 +1,4 @@
-/* globals Players deckOfCardsArray playersList Controls  */
+/* globals Players deckOfCardsArray playersList Controls EndGame */
 /* exported App */
 'use strict';
 

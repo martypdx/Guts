@@ -1,6 +1,7 @@
-'use strict';
 /* exported EndGame */
 /* globals UserReport */
+'use strict';
+
 const endMessageTemplate = document.getElementById('end-message-template').content;
 
 class EndGame {
