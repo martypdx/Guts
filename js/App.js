@@ -167,6 +167,7 @@ class App {
                 inOutViewerSection.classList.toggle('hidden');
             }
             else {
+                this.players[1].points++;
                 this.dealHand();
                 playersComponent.update(this.players);
                 this.getPlayersHand();
