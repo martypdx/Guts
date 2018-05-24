@@ -4,26 +4,61 @@ body {
     border-radius: 10px;
     color: #eac100;
     font-family: Arial, Helvetica, sans-serif;
+    height: 750px;
 }
 
 h1 {
     display: flex;
     justify-content: center;
     font-family: 'Cinzel', serif;
-}
-
-#controls {
-    margin-top: 40%;
-    display: flex;
-    align-self: end;
-    justify-content: space-around;
+    font-weight: 900;
 }
 
 #players {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 img {
-    width: 100px;
+    width: 125px;
+}
+
+#in-out-viewer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#center-viewer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    font-size: 30px;
+    background: none;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    color: #eac100;
+    border: none;
+}
+
+#message {
+    font-size: 20px;
+    background: none;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    color: #eac100;
+}
+
+#deal {
+    margin: 0 auto;
+    display: block;
+}
+
+.hand {
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
