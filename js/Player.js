@@ -16,11 +16,11 @@ class Player {
         const wins = dom.querySelector('.wins');
         wins.textContent = this.player.wins;
         
-        const loses = dom.querySelector('.loses');
-        loses.textContent = this.player.loses;
+        // const loses = dom.querySelector('.loses');
+        // loses.textContent = this.player.loses;
 
-        const draws = dom.querySelector('.draws');
-        draws.textContent = this.player.draws;
+        // const draws = dom.querySelector('.draws');
+        // draws.textContent = this.player.draws;
 
 
         const hand = dom.querySelector('.hand');
@@ -40,11 +40,11 @@ class Player {
         const wins = dom.querySelector('.wins');
         wins.textContent = this.player.wins;
         
-        const loses = dom.querySelector('.loses');
-        loses.textContent = this.player.loses;
+        // const loses = dom.querySelector('.loses');
+        // loses.textContent = this.player.loses;
 
-        const draws = dom.querySelector('.draws');
-        draws.textContent = this.player.draws;
+        // const draws = dom.querySelector('.draws');
+        // draws.textContent = this.player.draws;
         
         // checks to make sure hand has been dealt & players name is User
         if(this.player.hand.length > 0 && this.player.name === 'User') {
