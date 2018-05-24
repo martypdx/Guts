@@ -19,24 +19,13 @@ class App {
     }
 
     dealHand() {
-        const dom = appTemplate.content;
-        //TODO: fix line 24 to work with "dom" instead of "document"
-        const endMessageViewer = document.getElementById('end-message-viewer');
+       
         for(let i = 0; i < this.players.length; i++) {
             const player = this.players[i];
-            if(this.newDeck.length === 0) {
-                const endMessageComponent = new EndGame(this.players[0]);
-                const endMessageDom = endMessageComponent.render();
-                console.log('viewer', endMessageViewer);
-                endMessageViewer.appendChild(endMessageDom);
-            }
-
             const cardOne = this.newDeck.splice(this.randomize(this.newDeck), 1);
             const cardTwo = this.newDeck.splice(this.randomize(this.newDeck), 1);
             player.hand = [cardOne[0], cardTwo[0]];
-
         }
-        return dom;
     }
 
     tallyResults(outcome) {
@@ -52,6 +41,16 @@ class App {
             this.players[0].loses++;
             this.players[1].wins++;
         }
+    }
+
+    endGame() {
+        const endMessageViewer = document.getElementById('end-message-viewer');
+        this.endMessageComponent = new EndGame(this.players[0]);
+        const endMessageDom = this.endMessageComponent.render();
+        endMessageViewer.appendChild(endMessageDom);
+        this.playAgainButton.classList.toggle('hidden');
+        this.dealButton.classList.toggle('hidden');
+        this.newDeck = this.deck.slice();
     }
 
     getPlayersHand() {
@@ -127,17 +126,21 @@ class App {
         }
         
         this.tallyResults(this.outcome);
+        if(this.newDeck.length === 0) {
+            this.endGame();
+        }
     }
 
     render() {
-        const dom = appTemplate.content;
-
-        // prototype of ante button for dealing cards
-        const button = dom.getElementById('deal');
-        button.addEventListener('click', () => {
+        const dom = appTemplate.content.cloneNode(true);
+        this.playAgainButton = dom.getElementById('play-again');
+        // prototype of ante dealButton for dealing cards
+        this.dealButton = dom.getElementById('deal');
+        this.dealButton.addEventListener('click', () => {
             this.dealHand();
             inOutViewerSection.classList.toggle('hidden');
-            button.classList.toggle('hidden');
+            this.dealButton.classList.toggle('hidden');
+
             playersComponent.update(this.players);
             this.getPlayersHand();
             centerSection.classList.toggle('hidden');
@@ -159,7 +162,7 @@ class App {
             const centerDom = controlsViewerComponent.centerView(this.outcome);
             centerSection.appendChild(centerDom);
             centerSection.classList.toggle('hidden');
-            button.classList.toggle('hidden');
+            this.dealButton.classList.toggle('hidden');
             inOutViewerSection.classList.toggle('hidden');
         }, () => {
             this.dealHand();
@@ -171,6 +174,23 @@ class App {
         const inOutDom = controlsViewerComponent.renderInOut();
         inOutViewerSection.appendChild(inOutDom);
         inOutViewerSection.classList.toggle('hidden');
+
+        // play-again button
+        this.playAgainButton.addEventListener('click', () => {
+            this.dealHand();
+            inOutViewerSection.classList.toggle('hidden');
+            this.dealButton.classList.toggle('hidden');
+            //this.players[0].hand.splice(0);
+            //this.players[1].hand.splice(0);
+            
+            this.getPlayersHand();
+            playersComponent.update(this.players);
+            
+            centerSection.classList.toggle('hidden');
+            this.playAgainButton.classList.toggle('hidden');
+            this.endMessageComponent.update();
+        });
+
 
         return dom;
     }

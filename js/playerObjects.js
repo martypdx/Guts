@@ -16,5 +16,3 @@ const user = new PlayersObjects('User', [], []);
 const npcOne = new PlayersObjects('Rocket', [], []);
 const playersList = [user, npcOne];
 
-
-
