@@ -126,6 +126,7 @@ class App {
         }
         
         this.tallyResults(this.outcome);
+        
         if(this.newDeck.length === 0) {
             this.endGame();
         }
@@ -165,9 +166,16 @@ class App {
             this.dealButton.classList.toggle('hidden');
             inOutViewerSection.classList.toggle('hidden');
         }, () => {
-            this.dealHand();
-            playersComponent.update(this.players);
-            this.getPlayersHand();
+            if(this.newDeck.length === 0) {
+                this.endGame();
+                this.dealButton.classList.toggle('hidden');
+                inOutViewerSection.classList.toggle('hidden');
+            }
+            else {
+                this.dealHand();
+                playersComponent.update(this.players);
+                this.getPlayersHand();
+            }
         });
 
         const inOutViewerSection = dom.getElementById('in-out-viewer');
@@ -178,8 +186,8 @@ class App {
         // play-again button
         this.playAgainButton.addEventListener('click', () => {
             this.dealHand();
-            inOutViewerSection.classList.toggle('hidden');
-            this.dealButton.classList.toggle('hidden');
+            inOutViewerSection.classList.remove('hidden');
+            this.dealButton.classList.add('hidden');
             //this.players[0].hand.splice(0);
             //this.players[1].hand.splice(0);
             
