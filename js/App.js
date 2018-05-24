@@ -134,12 +134,12 @@ class App {
         this.dealButton = dom.getElementById('deal');
         this.dealButton.addEventListener('click', () => {
             this.dealHand();
-            inOutViewerSection.classList.toggle('hidden');
-            this.dealButton.classList.toggle('hidden');
+            inOutViewerSection.classList.remove('hidden');
+            this.dealButton.classList.add('hidden');
 
             playersComponent.update(this.players);
             this.getPlayersHand();
-            centerSection.classList.toggle('hidden');
+            centerSection.classList.add('hidden');
         });
         
         //renders players section
@@ -168,8 +168,10 @@ class App {
             }
             else {
                 this.players[1].points++;
-                this.dealHand();
-                playersComponent.update(this.players);
+                // this.dealHand();
+                playersComponent.reveal(this.players);
+                inOutViewerSection.classList.add('hidden');
+                this.dealButton.classList.remove('hidden');
                 this.getPlayersHand();
             }
         });
