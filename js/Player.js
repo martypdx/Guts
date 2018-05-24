@@ -6,6 +6,8 @@ class Player {
     constructor(player) {
         this.player = player;
     }
+    
+    Branches are messed up
 
     reveal() {
         const dom = playerTemplate.content.cloneNode(true);
