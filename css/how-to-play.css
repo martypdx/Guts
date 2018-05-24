@@ -1,0 +1,54 @@
+@font-face {
+    font-family: Guardians;
+    src: url(/Guardians.ttf);
+}
+
+body {
+    background-image: url('galaxy_background.jpg');
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
+.container {
+    margin: 50px auto;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    line-height: 2em;
+    width: 50%;
+    background-color: rgba(0, 0, 0, 0.737);
+    border-radius: 15px;
+}
+
+h1, h2, h3 {
+    font-family: Guardians, Arial, Helvetica, sans-serif;
+    color: gold;
+    text-shadow: 2px 2px 8px rgb(255, 112, 255);
+}
+
+ul, ol {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.25em;
+}
+
+.back {
+    font-family: Guardians, Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    background-color: #EEEEEE;
+    color: #333333;
+    border-radius: 5px;
+    padding: 7px;
+  }
+
+  .play {
+    font-family: Guardians, Arial, Helvetica, sans-serif;
+    font-size: 2.em;
+    text-decoration: none;
+    background-color: #EEEEEE;
+    color: #333333;
+    border-radius: 5px;
+    padding: 7px;
+  }
+

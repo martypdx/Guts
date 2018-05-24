@@ -54,10 +54,10 @@ class Controls {
             centerPara.textContent = 'Draw';
         }
         else if(outcome === 'Win') {
-            centerPara.textContent = 'Win';
+            centerPara.textContent = 'You Win.';
         }
         else if(outcome === 'Lose') {
-            centerPara.textContent = 'Lose';
+            centerPara.textContent = 'You Lose.';
         }
         return dom;
     }
