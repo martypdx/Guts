@@ -127,8 +127,11 @@ class App {
         const button = dom.getElementById('deal');
         button.addEventListener('click', () => {
             this.dealHand();
+            inOutViewerSection.classList.toggle('hidden');
+            button.classList.toggle('hidden');
             playersComponent.update(this.players);
             this.getPlayersHand();
+            centerSection.classList.toggle('hidden');
         });
         
         //renders players section
@@ -146,6 +149,9 @@ class App {
             playersComponent.reveal(this.players);
             const centerDom = controlsViewerComponent.centerView(this.outcome);
             centerSection.appendChild(centerDom);
+            centerSection.classList.toggle('hidden');
+            button.classList.toggle('hidden');
+            inOutViewerSection.classList.toggle('hidden');
         }, () => {
             this.dealHand();
             playersComponent.update(this.players);
@@ -155,6 +161,7 @@ class App {
         const inOutViewerSection = dom.getElementById('in-out-viewer');
         const inOutDom = controlsViewerComponent.renderInOut();
         inOutViewerSection.appendChild(inOutDom);
+        inOutViewerSection.classList.toggle('hidden');
 
         return dom;
     }
