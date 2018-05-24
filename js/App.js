@@ -11,7 +11,6 @@ class App {
         this.handDealt = [];
         this.userHand = [];
         this.opponentHand = [];
-        this.newDeck = this.deck.slice(0, 8);
     }
 
     randomize(deck) {
@@ -21,8 +20,8 @@ class App {
     dealHand() {
         for(let i = 0; i < this.players.length; i++) {
             const player = this.players[i];
-            const cardOne = this.newDeck.splice(this.randomize(this.newDeck), 1);
-            const cardTwo = this.newDeck.splice(this.randomize(this.newDeck), 1);
+            const cardOne = this.deck.splice(this.randomize(this.deck), 1);
+            const cardTwo = this.deck.splice(this.randomize(this.deck), 1);
             player.hand = [cardOne[0], cardTwo[0]];
         }
     }
