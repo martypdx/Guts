@@ -16,13 +16,6 @@ class Player {
         const wins = dom.querySelector('.wins');
         wins.textContent = this.player.points;
         
-        // const loses = dom.querySelector('.loses');
-        // loses.textContent = this.player.loses;
-
-        // const draws = dom.querySelector('.draws');
-        // draws.textContent = this.player.draws;
-
-
         const hand = dom.querySelector('.hand');
         const cards = hand.querySelectorAll('img');
         cards[0].src = this.player.hand[0].frontImage;
@@ -39,12 +32,6 @@ class Player {
         
         const wins = dom.querySelector('.wins');
         wins.textContent = this.player.points;
-        
-        // const loses = dom.querySelector('.loses');
-        // loses.textContent = this.player.loses;
-
-        // const draws = dom.querySelector('.draws');
-        // draws.textContent = this.player.draws;
         
         // checks to make sure hand has been dealt & players name is User
         if(this.player.hand.length > 0 && this.player.name === 'User') {
