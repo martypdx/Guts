@@ -4,6 +4,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     color: white;
+    font-family: 'Audiowide', cursive, Arial, Helvetica, sans-serif;
 }
 
 .container {
@@ -19,13 +20,11 @@ body {
 
 h1 {
     font-size: 2.5em;
-    font-family: Guardians, Arial, Helvetica, sans-serif;
     color: gold;
     text-shadow: 2px 2px 8px rgb(255, 112, 255);
 }
 
 h2, h3 {
-    font-family: Guardians, Arial, Helvetica, sans-serif;
     color: gold;
     text-shadow: 2px 2px 8px rgb(255, 112, 255);
 }
@@ -36,7 +35,6 @@ ul, ol {
 }
 
 .back {
-    font-family: Guardians, Arial, Helvetica, sans-serif;
     text-decoration: none;
     background-color: #EEEEEE;
     color: #333333;
@@ -48,7 +46,6 @@ ul, ol {
   }
 
   .play {
-    font-family: Guardians, Arial, Helvetica, sans-serif;
     font-size: 2.em;
     text-decoration: none;
     background-color: gold;
@@ -64,7 +61,6 @@ ul, ol {
   }
 
   .play:hover, .back:hover {
-    font-family: Guardians, Arial, Helvetica, sans-serif;
     font-size: 2.em;
     text-decoration: none;
     background-color: rgb(242, 44, 206);

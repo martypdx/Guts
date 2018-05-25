@@ -5,11 +5,12 @@ body {
     background-size: cover;
     color: white;
     padding: 50px;
+    font-family: 'Audiowide', cursive, Arial, Helvetica, sans-serif;
 }
 
 h1 {
     font-size: 2.5em;
-    font-family: Guardians, Arial, Helvetica, sans-serif;
+    /* font-family: Guardians, Arial, Helvetica, sans-serif; */
     color: gold;
     text-shadow: 2px 2px 8px rgb(255, 112, 255);
     text-align: center;
@@ -17,7 +18,7 @@ h1 {
 } 
 
 h2 {
-    font-family: Guardians, Arial, Helvetica, sans-serif;
+    /* font-family: Guardians, Arial, Helvetica, sans-serif; */
     color: gold;
     text-shadow: 2px 2px 8px rgb(255, 112, 255);
 }
@@ -67,7 +68,7 @@ p {
 }
 
 a {
-    font-family: Guardians, Arial, Helvetica, sans-serif;
+    /* font-family: Guardians, Arial, Helvetica, sans-serif; */
     font-size: 2.em;
     text-decoration: none;
     background-color: gold;

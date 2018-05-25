@@ -1,5 +1,8 @@
-const userName = document.getElementById('submit-name');
-userName.addEventListener('submit', () => {
+const userNameInput = document.getElementById('user-input');
+
+userNameInput.addEventListener('submit', event => {
+    event.preventDefault();
+    console.log(event.target.user.value);
+    let userName = event.target.user.value;
     window.localStorage.setItem('userName', JSON.stringify(userName));
-    console.log('user name input');
 });

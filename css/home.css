@@ -3,14 +3,14 @@ body {
     background-color: black;
     background-repeat: no-repeat;
     background-size: cover;
-    color: white;
+    font-family: 'Audiowide', cursive, Arial, Helvetica, sans-serif;
+    color: gold;
 }
 
 .title {
     width: 100%;
     text-align: center;
     font-size: 3em;
-    font-family: Guardians, Arial, Helvetica, sans-serif;
     color: gold;
 }
 
@@ -20,7 +20,6 @@ h1 {
 }
 
 .tag-line {
-    font-family: Guardians, Arial, Helvetica, sans-serif;
     color: gold;
     text-align: center;
     text-shadow: 2px 2px 5px rgb(62, 0, 62);
@@ -35,7 +34,6 @@ h1 {
 }
 
 .link-1 {
-    font-family: Guardians, Arial, Helvetica, sans-serif;
     color: rgb(242, 44, 206);
     display: inline-block;
     text-decoration: none;
@@ -47,7 +45,6 @@ h1 {
 }   
 
 .link-2 {
-    font-family: Guardians, Arial, Helvetica, sans-serif;
     color: aqua;
     display: inline-block;
     text-shadow: 0px 0px 6px aqua;
@@ -60,11 +57,10 @@ h1 {
 }
 
 .link-3 {
-    font-family: Guardians, Arial, Helvetica, sans-serif;
     color: rgb(242, 44, 206);
     display: inline-block;
     text-decoration: none;
-    font-size: 0.75em;
+    font-size: 1em;
     background-color: gold;
     padding: 10px;
     border-radius: 5px;
@@ -85,4 +81,11 @@ h1 {
     border: 5px solid rgb(242, 44, 206);
     box-shadow: 0 0px 10px white;
     text-shadow: 0 0px 5px rgb(242, 44, 206);
-} 
+}
+
+#footer-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
