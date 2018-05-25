@@ -98,3 +98,18 @@ button {
 .hidden {
     visibility: hidden;
 }
+
+.name {
+    position: absolute;
+    left: 10%;
+}
+
+#points-header {
+    position: absolute;
+    left: 10%;
+}
+
+.points {
+    position: absolute;
+    left: 14%;
+}

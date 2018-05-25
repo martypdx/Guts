@@ -11,6 +11,7 @@
     
     <template id="app-template">
         <section id="players"></section>
+        <section id="player-info"></section>
         <section id="center-viewer"></section>
         <section id="in-out-viewer"></section>
         <section id="end-message-viewer"></section>
@@ -21,18 +22,23 @@
     <template id="players-template">
         <div>
         </div>
+
+        <div id="stats">
+
+        </div>
     </template>
 
     <template id="player-template">
-        <div class="name"></div>
-        <span>Points:</span>
-        <span class="wins"></span>
+        <h2 class="name"></h2>
+        <span id="points-header">Points:</span>
+        <span class="points"></span>
+  
         <div class="hand">
             <span><img></span>
             <span><img></span>
         </div>
     </template>
-  
+
    <template id="center-template">
            <p id="message"></p>
     </template>
@@ -59,6 +65,7 @@
         </form> 
     </div>
     
+
     <script src="js/EndGame.js"></script>
     <script src="js/UserReport.js"></script>    
     <script src="js/Controls.js"></script>

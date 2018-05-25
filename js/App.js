@@ -29,17 +29,17 @@ class App {
 
     tallyResults(outcome) {
         if(outcome === 'Win') {
-            this.players[0].points += 2;
+            this.players[1].points += 2;
         }
 
         else if(outcome === 'Lose') {
-            this.players[1].points += 2;
+            this.players[0].points += 2;
         }
     }
 
     endGame() {
         const endMessageViewer = document.getElementById('end-message-viewer');
-        this.endMessageComponent = new EndGame(this.players[0], this.players[1]);
+        this.endMessageComponent = new EndGame(this.players[1], this.players[0]);
         const endMessageDom = this.endMessageComponent.render();
         endMessageViewer.appendChild(endMessageDom);
         this.playAgainButton.classList.toggle('hidden');
@@ -74,8 +74,8 @@ class App {
                 this.handDealt.push(hand);
             }
         }
-        this.userHand.push(this.handDealt[0]);
-        this.opponentHand.push(this.handDealt[1]);
+        this.opponentHand.push(this.handDealt[0]);
+        this.userHand.push(this.handDealt[1]);
     }
 
     compareHands(userHand, opponentHand){
@@ -126,23 +126,42 @@ class App {
         }
     }
 
+    playAgain() {
+        this.playAgainButton.addEventListener('click', () => {
+            this.players[0].points = 0;
+            this.players[1].points = 0;
+            this.dealHand();
+            this.inOutViewerSection.classList.remove('hidden');
+            this.dealButton.classList.add('hidden');
+            
+            this.getPlayersHand();
+            this.playersComponent.update(this.players);
+            
+            this.centerSection.classList.toggle('hidden');
+            this.playAgainButton.classList.toggle('hidden');
+            this.endMessageComponent.update();
+        });
+    }
+
     render() {
         const dom = appTemplate.content.cloneNode(true);
         this.playAgainButton = dom.getElementById('play-again');
         // prototype of ante dealButton for dealing cards
         this.dealButton = dom.getElementById('deal');
         this.dealButton.addEventListener('click', () => {
+            this.players[0].flipped = false;
             this.dealHand();
             inOutViewerSection.classList.remove('hidden');
             this.dealButton.classList.add('hidden');
 
-            playersComponent.update(this.players);
+            playersComponent.update(this.players, this.players[0].flipped);
             this.getPlayersHand();
             centerSection.classList.add('hidden');
+            
         });
         
         //renders players section
-        const playersComponent = new Players(this.players);
+        const playersComponent = new Players(this.players, this.players[0].flipped);
         const playersSection = dom.getElementById('players');
         playersSection.appendChild(playersComponent.render());
 
@@ -152,13 +171,15 @@ class App {
             while(centerSection.lastElementChild) {
                 centerSection.lastElementChild.remove();
             }
+            this.players[0].flipped = true;
             this.compareHands(this.userHand, this.opponentHand);
-            playersComponent.reveal(this.players);
+            playersComponent.reveal(this.players, this.players[0].flipped);
             const centerDom = controlsViewerComponent.centerView(this.outcome);
             centerSection.appendChild(centerDom);
             centerSection.classList.toggle('hidden');
             this.dealButton.classList.toggle('hidden');
             inOutViewerSection.classList.toggle('hidden');
+            
         }, () => {
             if(this.newDeck.length === 0) {
                 playersComponent.reveal(this.players);
@@ -167,12 +188,13 @@ class App {
                 inOutViewerSection.classList.toggle('hidden');
             }
             else {
-                this.players[1].points++;
-                // this.dealHand();
-                playersComponent.reveal(this.players);
+                this.players[0].points++;
+                this.players[0].flipped = true;
+                playersComponent.reveal(this.players, this.players[0].flipped);
                 inOutViewerSection.classList.add('hidden');
                 this.dealButton.classList.remove('hidden');
                 this.getPlayersHand();
+                
             }
         });
 
@@ -182,6 +204,7 @@ class App {
         inOutViewerSection.classList.toggle('hidden');
 
         // play-again button
+        this.playAgain();
         this.playAgainButton.addEventListener('click', () => {
             this.players[0].points = 0;
             this.players[1].points = 0;
@@ -196,8 +219,7 @@ class App {
             this.playAgainButton.classList.toggle('hidden');
             this.endMessageComponent.update();
         });
-
-
+        
         return dom;
     }
 }

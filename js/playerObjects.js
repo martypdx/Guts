@@ -1,4 +1,4 @@
-/* exported playersList */
+/* exported playersList playersData */
 const playersData = window.localStorage.getItem('playersList');
 
 window.onbeforeunload = () => {
@@ -21,12 +21,12 @@ function initProducts() {
         constructor(name) {
             this.name = name;
             this.hand = [];
+            this.flipped = false;
             this.points = 0;
         }
     }
 
     const user = new PlayersObjects('User');
     const npcOne = new PlayersObjects('Opponent');
-    playersList = [user, npcOne];
-
+    playersList = [npcOne, user];
 }
