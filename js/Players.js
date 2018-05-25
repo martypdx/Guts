@@ -26,21 +26,6 @@ class Players {
         }
     }
 
-    reveal(players, flipped) {
-        this.players = players;
-        this.flipped = flipped;
-
-        while(this.div.lastElementChild) {
-            this.div.lastElementChild.remove();
-        }
-
-        for(let i = 0; i < this.players.length; i++) {
-            const playerComponent = new Player(this.players[i], this.flipped);
-            const playerDom = playerComponent.reveal();
-            this.div.appendChild(playerDom);
-        }
-    }
-
     render() {
         const dom = playersTemplate.content;
         this.div = dom.querySelector('div');
