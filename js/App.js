@@ -27,26 +27,6 @@ class App {
         }
     }
 
-    tallyResults(outcome) {
-        if(outcome === 'Win') {
-            this.players[1].points += 2;
-        }
-
-        else if(outcome === 'Lose') {
-            this.players[0].points += 2;
-        }
-    }
-
-    endGame() {
-        const endMessageViewer = document.getElementById('end-message-viewer');
-        this.endMessageComponent = new EndGame(this.players[1], this.players[0]);
-        const endMessageDom = this.endMessageComponent.render();
-        endMessageViewer.appendChild(endMessageDom);
-        this.playAgainButton.classList.toggle('hidden');
-        this.dealButton.classList.toggle('hidden');
-        this.newDeck = this.deck.slice();
-    }
-
     getPlayersHand() {
         if(this.handDealt.length) {
             this.handDealt = [];
@@ -126,6 +106,26 @@ class App {
         }
     }
 
+    tallyResults(outcome) {
+        if(outcome === 'Win') {
+            this.players[1].points += 2;
+        }
+
+        else if(outcome === 'Lose') {
+            this.players[0].points += 2;
+        }
+    }
+
+    endGame() {
+        const endMessageViewer = document.getElementById('end-message-viewer');
+        this.endMessageComponent = new EndGame(this.players[1], this.players[0]);
+        const endMessageDom = this.endMessageComponent.render();
+        endMessageViewer.appendChild(endMessageDom);
+        this.playAgainButton.classList.toggle('hidden');
+        this.dealButton.classList.toggle('hidden');
+        this.newDeck = this.deck.slice();
+    }
+
     render() {
         const dom = appTemplate.content.cloneNode(true);
         this.playAgainButton = dom.getElementById('play-again');
@@ -156,7 +156,7 @@ class App {
             }
             this.players[0].flipped = true;
             this.compareHands(this.userHand, this.opponentHand);
-            playersComponent.reveal(this.players, this.players[0].flipped);
+            playersComponent.update(this.players, this.players[0].flipped);
             const centerDom = controlsViewerComponent.centerView(this.outcome);
             centerSection.appendChild(centerDom);
             centerSection.classList.toggle('hidden');
@@ -165,7 +165,7 @@ class App {
             
         }, () => {
             if(this.newDeck.length === 0) {
-                playersComponent.reveal(this.players);
+                playersComponent.update(this.players);
                 this.endGame();
                 this.dealButton.classList.toggle('hidden');
                 inOutViewerSection.classList.toggle('hidden');
@@ -173,7 +173,7 @@ class App {
             else {
                 this.players[0].points++;
                 this.players[0].flipped = true;
-                playersComponent.reveal(this.players, this.players[0].flipped);
+                playersComponent.update(this.players, this.players[0].flipped);
                 inOutViewerSection.classList.add('hidden');
                 this.dealButton.classList.remove('hidden');
                 this.getPlayersHand();
