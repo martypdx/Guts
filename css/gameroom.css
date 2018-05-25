@@ -5,7 +5,7 @@ body {
     color: #eac100;
     font-family: 'Cinzel', serif;
     /* height: 750px; */
-    margin: 50px 250px;
+    margin: 50px 150px;
     /* padding: 400px; */
 }
 
@@ -19,8 +19,39 @@ h1 {
 
 #players {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+#player-board {
+    align-items: center;
+    margin-right: 270px;
+}
+
+.hand {
+    margin-left: 100px;
+}
+
+#player-board {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.player-set {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.players-info {
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: right;
 }
 
 img {
@@ -99,7 +130,7 @@ button {
     visibility: hidden;
 }
 
-.name {
+/* .name {
     position: absolute;
     left: 100px;
 }
@@ -112,4 +143,4 @@ button {
 .points {
     position: absolute;
     left: 175px;
-}
+} */

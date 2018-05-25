@@ -18,7 +18,6 @@ class EndGame {
 
     render() {
         const dom = endMessageTemplate.content.cloneNode(true);
-        console.log(dom);
         this.ul = dom.querySelector('ul');
 
         const messageComponent = new UserReport(this.playerOne, this.playerTwo);

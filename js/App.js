@@ -126,23 +126,6 @@ class App {
         }
     }
 
-    playAgain() {
-        this.playAgainButton.addEventListener('click', () => {
-            this.players[0].points = 0;
-            this.players[1].points = 0;
-            this.dealHand();
-            this.inOutViewerSection.classList.remove('hidden');
-            this.dealButton.classList.add('hidden');
-            
-            this.getPlayersHand();
-            this.playersComponent.update(this.players);
-            
-            this.centerSection.classList.toggle('hidden');
-            this.playAgainButton.classList.toggle('hidden');
-            this.endMessageComponent.update();
-        });
-    }
-
     render() {
         const dom = appTemplate.content.cloneNode(true);
         this.playAgainButton = dom.getElementById('play-again');
@@ -204,7 +187,6 @@ class App {
         inOutViewerSection.classList.toggle('hidden');
 
         // play-again button
-        this.playAgain();
         this.playAgainButton.addEventListener('click', () => {
             this.players[0].points = 0;
             this.players[1].points = 0;
@@ -213,7 +195,7 @@ class App {
             this.dealButton.classList.add('hidden');
             
             this.getPlayersHand();
-            playersComponent.update(this.players);
+            playersComponent.update(this.players, this.flipped);
             
             centerSection.classList.add('hidden');
             this.playAgainButton.classList.toggle('hidden');
