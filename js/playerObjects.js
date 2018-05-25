@@ -1,5 +1,6 @@
 /* exported playersList playersData */
 const playersData = window.localStorage.getItem('playersList');
+const userName = window.localStorage.getItem('userName');
 
 window.onbeforeunload = () => {
     window.localStorage.setItem('playersList', JSON.stringify(playersList));
@@ -26,7 +27,7 @@ function initProducts() {
         }
     }
 
-    const user = new PlayersObjects('User');
+    const user = new PlayersObjects(userName.replace(/['"]+/g, ''));
     const npcOne = new PlayersObjects('Opponent');
     playersList = [npcOne, user];
 }
