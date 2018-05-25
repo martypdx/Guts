@@ -195,7 +195,7 @@ class App {
             this.dealButton.classList.add('hidden');
             
             this.getPlayersHand();
-            playersComponent.update(this.players);
+            playersComponent.update(this.players, this.flipped);
             
             centerSection.classList.add('hidden');
             this.playAgainButton.classList.toggle('hidden');
