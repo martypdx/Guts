@@ -101,15 +101,15 @@ button {
 
 .name {
     position: absolute;
-    left: 10%;
+    left: 100px;
 }
 
 #points-header {
     position: absolute;
-    left: 10%;
+    left: 100px;
 }
 
 .points {
     position: absolute;
-    left: 14%;
+    left: 175px;
 }
