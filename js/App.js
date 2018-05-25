@@ -33,7 +33,7 @@ class App {
             this.players[0].points += 2;
         }
 
-        else {
+        else if(outcome === 'Lose') {
             this.players[1].points += 2;
         }
     }
@@ -82,7 +82,7 @@ class App {
     compareHands(userHand, opponentHand){
         // comparing if both players have pairs
         if(userHand[0].length === 1 && opponentHand[0].length === 1) {
-            if(userHand === opponentHand) {
+            if(userHand[0][0] === opponentHand[0][0]) {
                 this.outcome = 'Draw';
             }
             else if(userHand[0][0] > opponentHand[0][0]) {
@@ -188,8 +188,6 @@ class App {
             this.dealHand();
             inOutViewerSection.classList.remove('hidden');
             this.dealButton.classList.add('hidden');
-            //this.players[0].hand.splice(0);
-            //this.players[1].hand.splice(0);
             
             this.getPlayersHand();
             playersComponent.update(this.players);
