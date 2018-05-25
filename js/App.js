@@ -19,7 +19,6 @@ class App {
     }
 
     dealHand() {
-       
         for(let i = 0; i < this.players.length; i++) {
             const player = this.players[i];
             const cardOne = this.newDeck.splice(this.randomize(this.newDeck), 1);
@@ -40,7 +39,7 @@ class App {
 
     endGame() {
         const endMessageViewer = document.getElementById('end-message-viewer');
-        this.endMessageComponent = new EndGame(this.players[1]);
+        this.endMessageComponent = new EndGame(this.players[1], this.players[0]);
         const endMessageDom = this.endMessageComponent.render();
         endMessageViewer.appendChild(endMessageDom);
         this.playAgainButton.classList.toggle('hidden');
@@ -183,6 +182,7 @@ class App {
             
         }, () => {
             if(this.newDeck.length === 0) {
+                playersComponent.reveal(this.players);
                 this.endGame();
                 this.dealButton.classList.toggle('hidden');
                 inOutViewerSection.classList.toggle('hidden');
@@ -215,7 +215,7 @@ class App {
             this.getPlayersHand();
             playersComponent.update(this.players);
             
-            centerSection.classList.toggle('hidden');
+            centerSection.classList.add('hidden');
             this.playAgainButton.classList.toggle('hidden');
             this.endMessageComponent.update();
         });

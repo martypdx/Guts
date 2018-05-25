@@ -7,9 +7,7 @@
 </head>
 <body>
     <h1>GUTS</h1>
-
-    <div id="root">
-    </div>
+    <div id="root"></div>
     
     <template id="app-template">
         <section id="players"></section>
@@ -18,12 +16,11 @@
         <section id="in-out-viewer"></section>
         <section id="end-message-viewer"></section>
         <button id="deal">DEAL</button>
-        <button id="play-again" class="hidden">PLAY AGAIN?</button>
+        <button id="play-again" class="hidden">PLAY AGAIN</button>
     </template>
 
     <template id="players-template">
         <div>
-
         </div>
 
         <div id="stats">
@@ -35,6 +32,7 @@
         <h2 class="name"></h2>
         <span id="points-header">Points:</span>
         <span class="points"></span>
+  
         <div class="hand">
             <span><img></span>
             <span><img></span>
@@ -52,7 +50,7 @@
 
     <template id="end-message-template">
         <ul>
-
+            <h2>Final Score</h2>
         </ul>
     </template>
 
@@ -63,7 +61,7 @@
 
     <div>
         <form>
-            <input type="button" value="Exit Game" onclick="window.location.href='index.html'"/>
+            <input class="button" type="button" value="Exit Game" onclick="window.location.href='index.html'"/>
         </form> 
     </div>
     
@@ -77,6 +75,5 @@
     <script src="js/Player.js"></script>
     <script src="js/App.js"></script>
     <script src="js/main.js"></script>
-  
 </body>
 </html>
