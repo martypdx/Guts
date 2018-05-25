@@ -3,8 +3,10 @@ body {
     border: solid 5px #c8a500;
     border-radius: 10px;
     color: #eac100;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Cinzel', serif;
     /* height: 750px; */
+    margin: 50px 250px;
+    /* padding: 400px; */
 }
 
 h1 {
@@ -37,13 +39,24 @@ img {
     justify-content: center;
 }
 
-button {
+button, .button {
     font-size: 30px;
     background: none;
     font-family: 'Cinzel', serif;
     font-weight: 700;
     color: #eac100;
-    border: none;
+    border: solid 2px #c8a500;
+    border-radius: 5px;
+}
+
+button {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.button {
+    font-size: 20px;
+    margin: 15px;
 }
 
 #message {
@@ -57,6 +70,24 @@ button {
 #deal {
     margin: 0 auto;
     display: block;
+}
+
+#play-again {
+    margin: 0 auto;
+    display: block;
+}
+
+#end-message-viewer ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0;
+}
+
+#end-message-viewer {
+    margin: 0;
 }
 
 .hand {
