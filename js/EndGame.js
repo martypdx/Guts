@@ -10,7 +10,6 @@ class EndGame {
     }
 
     update() {
-        
         while(this.ul.lastElementChild) {
             this.ul.lastElementChild.remove();
         }

@@ -6,41 +6,46 @@
 const playersTemplate = document.getElementById('players-template');
 
 class Players {
-    constructor(players) {
+    constructor(players, flipped) {
         this.players = players;
+        this.flipped = flipped;
     }
 
-    update(players) {
+    update(players, flipped) {
         this.players = players;
-        while(this.ul.lastElementChild) {
-            this.ul.lastElementChild.remove();
+        this.flipped = flipped;
+
+        while(this.div.lastElementChild) {
+            this.div.lastElementChild.remove();
         }
 
         for(let i = 0; i < this.players.length; i++) {
-            const playerComponent = new Player(this.players[i]);
+            const playerComponent = new Player(this.players[i], this.flipped);
             const playerDom = playerComponent.render();
-            this.ul.appendChild(playerDom);
+            this.div.appendChild(playerDom);
         }
     }
 
-    reveal(players) {
+    reveal(players, flipped) {
         this.players = players;
-        while(this.ul.lastElementChild) {
-            this.ul.lastElementChild.remove();
+        this.flipped = flipped;
+
+        while(this.div.lastElementChild) {
+            this.div.lastElementChild.remove();
         }
 
         for(let i = 0; i < this.players.length; i++) {
-            const playerComponent = new Player(this.players[i]);
+            const playerComponent = new Player(this.players[i], this.flipped);
             const playerDom = playerComponent.reveal();
-            this.ul.appendChild(playerDom);
+            this.div.appendChild(playerDom);
         }
     }
 
     render() {
         const dom = playersTemplate.content;
-        this.ul = dom.querySelector('div');
+        this.div = dom.querySelector('div');
         
-        this.update(this.players);
+        this.update(this.players, this.flipped);
 
         return dom;
     }
