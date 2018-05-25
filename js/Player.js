@@ -45,21 +45,21 @@ class Player {
             cards[1].src = this.player.hand[1].frontImage;
         }
 
-        else if(this.player.hand.length > 0 && this.player.name === 'User') {
-            const hand = dom.querySelector('.hand');
-            const cards = hand.querySelectorAll('img');
-            cards[0].src = this.player.hand[0].frontImage;
-            cards[1].src = this.player.hand[1].frontImage;
-            
-        }
-
         // checks to make sure hand has been dealt & players name is not User
-        else if(this.player.hand.length > 0 && this.player.name !== 'User') {
+        else if(this.player.hand.length > 0 && this.player.name === 'Opponent') {
             const hand = dom.querySelector('.hand');
             const cards = hand.querySelectorAll('img');
             cards[0].src = this.player.hand[0].backImage;
             cards[1].src = this.player.hand[1].backImage;
 
+        }
+
+        else if(this.player.hand.length > 0) {
+            const hand = dom.querySelector('.hand');
+            const cards = hand.querySelectorAll('img');
+            cards[0].src = this.player.hand[0].frontImage;
+            cards[1].src = this.player.hand[1].frontImage;
+            
         }
 
         return dom;
