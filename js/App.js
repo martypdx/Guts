@@ -129,7 +129,6 @@ class App {
     render() {
         const dom = appTemplate.content.cloneNode(true);
         this.playAgainButton = dom.getElementById('play-again');
-        // prototype of ante dealButton for dealing cards
         this.dealButton = dom.getElementById('deal');
         this.dealButton.addEventListener('click', () => {
             this.players[0].flipped = false;
