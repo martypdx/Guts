@@ -1,5 +1,7 @@
 # Guts
 
+// initial commit
+
 Team Members:
 * Injoong Yoon
 * Robyn Navarro
