@@ -10,7 +10,35 @@ class Card {
         this.backImage = 'cardImages/card_back.png';
     }
 }
-    
+
+// consider making cards programmatically:
+const cards = [
+    { rank: 2, name: 2 },
+    { rank: 3, name: 3 },
+    { rank: 4, name: 4 },
+    { rank: 5, name: 5 },
+    { rank: 6, name: 6 },
+    { rank: 7, name: 7 },
+    { rank: 8, name: 8 },
+    { rank: 9, name: 9 },
+    { rank: 10, name: 10 },
+    { rank: 11, name: 'jack' },
+    { rank: 12, name: 'queen' },
+    { rank: 13, name: 'king' },
+    { rank: 14, name: 'ace' },
+];
+const suits = ['club', 'diamond', 'heart', 'spade'];
+const deck = [];
+
+for(let s = 0; s < suits.length; s++) {
+    const suit = suits[s];
+    for(let c = 0; c < cards.length; c++) {
+        const card = cards[c];
+        deck.push(new Card(card.rank, suit, 'cardImages/' + card.name + '_of_' + suit + '.png'));
+    }
+}
+// 
+ 
 const twoOfClubs = new Card(2, 'club', 'cardImages/2_of_clubs.png');
 const threeOfClubs = new Card(3, 'club', 'cardImages/3_of_clubs.png');
 const fourOfClubs = new Card(4, 'club', 'cardImages/4_of_clubs.png');

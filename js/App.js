@@ -8,9 +8,12 @@ class App {
     constructor() {
         this.players = playersList;
         this.deck = deckOfCardsArray;
+        // players already have ".hands" property.
+        // so why track hands again?
         this.handDealt = [];
         this.userHand = [];
         this.opponentHand = [];
+
         this.newDeck = this.deck.slice();
     }
 
@@ -24,6 +27,40 @@ class App {
             const cardOne = this.newDeck.splice(this.randomize(this.newDeck), 1);
             const cardTwo = this.newDeck.splice(this.randomize(this.newDeck), 1);
             player.hand = [cardOne[0], cardTwo[0]];
+        }
+    }
+
+    // logic for comparing hands seems overly-complicated.
+    // maybe something like:
+    simpleCompare() {
+        
+        // this could be outside the class, but for easy of reading putting here:
+        function getScore(hand) {
+            const cardOne = hand[0].value;
+            const cardTwo = hand[1].value;
+
+            if(cardOne === cardTwo) {
+                return cardOne * 100;
+            }
+            else if(cardOne > cardTwo) {
+                return cardOne + (cardTwo * .1);
+            }
+            else {
+                return cardTwo + (cardOne * .1);
+            }
+        }
+        
+        const opponentScore = getScore(this.players[0].hand);
+        const userScore = getScore(this.players[1].hand);
+
+        if(userScore === opponentScore) {
+            this.outcome = 'Draw';
+        }
+        else if(userScore > opponentScore) {
+            this.outcome = 'Win';
+        }
+        else {
+            this.outcome = 'Lose';
         }
     }
 
